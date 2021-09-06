@@ -244,5 +244,15 @@ namespace KL___Game_of_Life_Program
 			}
 			graphicsPanel1.Invalidate();
 		}
-	}
+
+        private void toolStripButton1_Click(object sender, EventArgs e)
+        {
+			timer.Enabled = true; //turn on/run
+        }
+
+        private void toolStripButton2_Click(object sender, EventArgs e)
+        {
+			timer.Enabled = false; //turn off.stop
+        }
+    }
 }
