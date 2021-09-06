@@ -10,7 +10,7 @@ using System.Windows.Forms;
 
 namespace KL___Game_of_Life_Program
 {
-	public partial class Form1 : Form
+	public partial class Form1 : Form //partial keyword is saying it's only a portion of the code for form 1, the rest of code is in form1.Designer.cs
 	{
 		// The universe array
 		bool[,] universe = new bool[5, 5];
