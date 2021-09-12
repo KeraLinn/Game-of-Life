@@ -218,13 +218,8 @@ namespace KL___Game_of_Life_Program
 				graphicsPanel1.Invalidate();
 			}
 		}
-
-		/// <summary>
 		/// never call paint directly
 		/// never put invalidate within the paint
-		/// </summary>
-		/// <param name="sender"></param>
-		/// <param name="e"></param>
 		#endregion
 
 
@@ -279,5 +274,17 @@ namespace KL___Game_of_Life_Program
 			}
 		}
 
+        private void backgroundColorToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+			ColorDialog dlg = new ColorDialog();
+			
+			dlg.Color = DefaultBackColor;
+			if(DialogResult.OK == dlg.ShowDialog())
+            {
+				
+				graphicsPanel1.Invalidate();
+			}
+			
+        }
     }
 }
