@@ -19,6 +19,7 @@ namespace KL___Game_of_Life_Program
 		// Drawing colors
 		Color gridColor = Color.Black;
 		Color cellColor = Color.Gray;
+		
 
 		// The Timer class
 		Timer timer = new Timer();
@@ -254,5 +255,28 @@ namespace KL___Game_of_Life_Program
         {
 			timer.Enabled = false; //turn off.stop
         }
+
+
+        private void cellColorToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+			ColorDialog dlg = new ColorDialog();
+			dlg.Color = cellColor;
+			if (DialogResult.OK == dlg.ShowDialog())
+			{
+				cellColor = dlg.Color;
+				graphicsPanel1.Invalidate();
+			}
+		}
+
+        private void gridColorToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+			ColorDialog dlg = new ColorDialog();
+			dlg.Color = gridColor;
+			if (DialogResult.OK == dlg.ShowDialog())
+			{
+				gridColor = dlg.Color;
+				graphicsPanel1.Invalidate();
+			}
+		}
     }
 }
