@@ -274,6 +274,7 @@ namespace KL___Game_of_Life_Program
 			}
 		}
 
+		//grid x10 is like the "big grid" of it, like the shape of tic tac toe whereas the grid is every cell outline
         private void backgroundColorToolStripMenuItem_Click(object sender, EventArgs e)
         {
 			ColorDialog dlg = new ColorDialog();
