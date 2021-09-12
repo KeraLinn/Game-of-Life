@@ -93,9 +93,9 @@ namespace KL___Game_of_Life_Program.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Pause_16x {
+        internal static System.Drawing.Bitmap Image1 {
             get {
-                object obj = ResourceManager.GetObject("Pause_16x", resourceCulture);
+                object obj = ResourceManager.GetObject("Image1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -103,9 +103,9 @@ namespace KL___Game_of_Life_Program.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap PlayVideo_16x {
+        internal static System.Drawing.Bitmap Pause_16x {
             get {
-                object obj = ResourceManager.GetObject("PlayVideo_16x", resourceCulture);
+                object obj = ResourceManager.GetObject("Pause_16x", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

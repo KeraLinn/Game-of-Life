@@ -278,5 +278,6 @@ namespace KL___Game_of_Life_Program
 				graphicsPanel1.Invalidate();
 			}
 		}
+
     }
 }
