@@ -31,6 +31,8 @@ namespace KL___Game_of_Life_Program
 		{
 			InitializeComponent();
 
+			graphicsPanel1.BackColor = Properties.Settings.Default.BackgroundColor;
+
 			// Setup the timer
 			timer.Interval = 100; // milliseconds
 			timer.Tick += Timer_Tick;
@@ -279,10 +281,10 @@ namespace KL___Game_of_Life_Program
         {
 			ColorDialog dlg = new ColorDialog();
 			
-			dlg.Color = DefaultBackColor;
+			dlg.Color = graphicsPanel1.BackColor;
 			if(DialogResult.OK == dlg.ShowDialog())
             {
-				
+				graphicsPanel1.BackColor = dlg.Color;
 				graphicsPanel1.Invalidate();
 			}
 			

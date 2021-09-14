@@ -359,7 +359,7 @@ namespace KL___Game_of_Life_Program
             // graphicsPanel1
             // 
             this.graphicsPanel1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.graphicsPanel1.BackColor = System.Drawing.Color.White;
+            this.graphicsPanel1.BackColor = System.Drawing.Color.WhiteSmoke;
             this.graphicsPanel1.ContextMenuStrip = this.contextMenuStrip1;
             this.graphicsPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.graphicsPanel1.Location = new System.Drawing.Point(0, 49);

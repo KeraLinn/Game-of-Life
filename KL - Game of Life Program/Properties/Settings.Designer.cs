@@ -25,7 +25,7 @@ namespace KL___Game_of_Life_Program.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("DeepSkyBlue")]
+        [global::System.Configuration.DefaultSettingValueAttribute("MistyRose")]
         public global::System.Drawing.Color BackgroundColor {
             get {
                 return ((global::System.Drawing.Color)(this["BackgroundColor"]));
