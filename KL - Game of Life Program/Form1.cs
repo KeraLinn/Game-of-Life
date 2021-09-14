@@ -293,5 +293,11 @@ namespace KL___Game_of_Life_Program
 			Properties.Settings.Default.Reset();
 			graphicsPanel1.BackColor = Properties.Settings.Default.BackgroundColor;
         }
+
+        private void reloadToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+			Properties.Settings.Default.Reload();
+			graphicsPanel1.BackColor = Properties.Settings.Default.BackgroundColor;
+		}
     }
 }
