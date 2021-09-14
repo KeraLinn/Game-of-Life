@@ -301,5 +301,11 @@ namespace KL___Game_of_Life_Program
 			Properties.Settings.Default.Reload();
 			graphicsPanel1.BackColor = Properties.Settings.Default.BackgroundColor;
 		}
+
+        private void Form1_FormClosed(object sender, FormClosedEventArgs e)
+        {
+			Properties.Settings.Default.BackgroundColor = graphicsPanel1.BackColor;
+			Properties.Settings.Default.Save();
+        }
     }
 }
