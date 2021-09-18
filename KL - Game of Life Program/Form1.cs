@@ -56,6 +56,23 @@ namespace KL___Game_of_Life_Program
 			}
 			graphicsPanel1.Invalidate();
 		}
+		private void RandomizeFromSeed(int seed)
+        {
+			Random rand = new Random(seed);
+			for (int y = 0; y < universe.GetLength(1); y++)
+			{
+				for (int x = 0; x < universe.GetLength(0); x++)
+				{
+					rand.Next(0, 3);
+					if (rand.Next() == 0)
+					{
+						universe[x, y] = true;
+					}
+					else { universe[x, y] = false; }
+				}
+			}
+			graphicsPanel1.Invalidate();
+		}
 		// Calculate the next generation of cells
 		private void NextGeneration()
 		{
