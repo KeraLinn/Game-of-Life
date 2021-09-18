@@ -350,5 +350,10 @@ namespace KL___Game_of_Life_Program
 				NextGeneration();
             }
         }
+
+        private void fromTimeToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+			RandomizeFromTime();
+        }
     }
 }
