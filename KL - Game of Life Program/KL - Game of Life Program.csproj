@@ -46,6 +46,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ApplyEventArgs.cs" />
     <Compile Include="ChangeSize Modal Dialog.cs">
       <SubType>Form</SubType>
     </Compile>
