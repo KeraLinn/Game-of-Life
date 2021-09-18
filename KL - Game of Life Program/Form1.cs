@@ -334,5 +334,11 @@ namespace KL___Game_of_Life_Program
 			Properties.Settings.Default.BackgroundColor = graphicsPanel1.BackColor;
 			Properties.Settings.Default.Save();
         }
+
+        private void fromSeedToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+			ModalDial
+			RandomizeFromSeed(int seed);
+        }
     }
 }

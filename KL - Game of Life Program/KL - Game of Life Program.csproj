@@ -63,6 +63,12 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RandomizeFromSeed Modal Dialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RandomizeFromSeed Modal Dialog.Designer.cs">
+      <DependentUpon>RandomizeFromSeed Modal Dialog.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="ChangeSize Modal Dialog.resx">
       <DependentUpon>ChangeSize Modal Dialog.cs</DependentUpon>
     </EmbeddedResource>
@@ -79,6 +85,9 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="RandomizeFromSeed Modal Dialog.resx">
+      <DependentUpon>RandomizeFromSeed Modal Dialog.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
