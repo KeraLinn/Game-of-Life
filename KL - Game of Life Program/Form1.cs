@@ -19,7 +19,6 @@ namespace KL___Game_of_Life_Program
 		// Drawing colors
 		Color gridColor = Color.Black;
 		Color cellColor = Color.Gray;
-		
 
 		// The Timer class
 		Timer timer = new Timer();
@@ -46,11 +45,8 @@ namespace KL___Game_of_Life_Program
 			{
 				for (int x = 0; x < universe.GetLength(0); x++)
 				{
-					rand.Next(0, 3);
-					if (rand.Next() == 0)
-					{
-						universe[x, y] = true;
-					}
+					if (rand.Next(0,2) == 1)
+					{ universe[x, y] = true; }
 					else { universe[x, y] = false; }
 				}
 			}
@@ -63,11 +59,8 @@ namespace KL___Game_of_Life_Program
 			{
 				for (int x = 0; x < universe.GetLength(0); x++)
 				{
-					rand.Next(0, 3);
-					if (rand.Next() == 0)
-					{
-						universe[x, y] = true;
-					}
+					if (rand.Next(0,2) == 1)
+					{ universe[x, y] = true; }
 					else { universe[x, y] = false; }
 				}
 			}
@@ -107,12 +100,10 @@ namespace KL___Game_of_Life_Program
                     }	
 				}
 			}
-			//pretty sure need to swap here?
 			bool[,] temp = universe;
 			universe = scratchPad;
 			scratchPad = temp;
-			
-			//invalidate graphics panel /// is this the right spot?
+			//invalidate graphics panel
 			graphicsPanel1.Invalidate();
 
 			// Increment generation count
@@ -121,7 +112,6 @@ namespace KL___Game_of_Life_Program
 			// Update status strip generations
 			toolStripStatusLabelGenerations.Text = "Generations = " + generations.ToString();
 		}
-
 		private int CountNeighborsFinite(int x, int y)
 		{
 			int neighborNum = 0;
