@@ -16,5 +16,7 @@ namespace KL___Game_of_Life_Program
         {
             InitializeComponent();
         }
+
+        public int SeedInteger { get; internal set; }
     }
 }

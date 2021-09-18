@@ -38,7 +38,18 @@ namespace KL___Game_of_Life_Program
             // 
             // SeedNumericUpDown1
             // 
+            this.SeedNumericUpDown1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.SeedNumericUpDown1.Increment = new decimal(new int[] {
+            5,
+            0,
+            0,
+            0});
             this.SeedNumericUpDown1.Location = new System.Drawing.Point(136, 39);
+            this.SeedNumericUpDown1.Maximum = new decimal(new int[] {
+            100000,
+            0,
+            0,
+            0});
             this.SeedNumericUpDown1.Name = "SeedNumericUpDown1";
             this.SeedNumericUpDown1.Size = new System.Drawing.Size(120, 20);
             this.SeedNumericUpDown1.TabIndex = 0;
@@ -54,6 +65,7 @@ namespace KL___Game_of_Life_Program
             // 
             // SeedButtonOK
             // 
+            this.SeedButtonOK.DialogResult = System.Windows.Forms.DialogResult.OK;
             this.SeedButtonOK.Location = new System.Drawing.Point(86, 106);
             this.SeedButtonOK.Name = "SeedButtonOK";
             this.SeedButtonOK.Size = new System.Drawing.Size(75, 23);
@@ -86,6 +98,7 @@ namespace KL___Game_of_Life_Program
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "RandomizeFromSeed_Modal_Dialog";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Randomize from Seed";
             ((System.ComponentModel.ISupportInitialize)(this.SeedNumericUpDown1)).EndInit();
             this.ResumeLayout(false);

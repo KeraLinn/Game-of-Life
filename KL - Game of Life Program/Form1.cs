@@ -337,8 +337,14 @@ namespace KL___Game_of_Life_Program
 
         private void fromSeedToolStripMenuItem_Click(object sender, EventArgs e)
         {
-			ModalDial
-			RandomizeFromSeed(int seed);
+			RandomizeFromSeed_Modal_Dialog dlg = new RandomizeFromSeed_Modal_Dialog();
+			dlg.SeedInteger = 0;
+			if (DialogResult.OK == dlg.ShowDialog())
+			{
+				int seed = dlg.SeedInteger;
+				RandomizeFromSeed(seed);
+				graphicsPanel1.Invalidate();
+			}
         }
     }
 }
