@@ -13,8 +13,8 @@ namespace KL___Game_of_Life_Program
 	public partial class Form1 : Form //partial keyword is saying it's only a portion of the code for form 1, the rest of code is in form1.Designer.cs
 	{
 		// The universe array
-		bool[,] universe = new bool[5, 5];
-		bool[,] scratchPad = new bool[5, 5];
+		bool[,] universe = new bool[30, 30];
+		bool[,] scratchPad = new bool[30, 30];
 
 		// Drawing colors
 		Color gridColor = Color.Black;
@@ -76,7 +76,6 @@ namespace KL___Game_of_Life_Program
 		// Calculate the next generation of cells
 		private void NextGeneration()
 		{
-			
 			// Iterate through the universe in the y, top to bottom
 			for (int y = 0; y < universe.GetLength(1); y++)
 			{
@@ -85,10 +84,10 @@ namespace KL___Game_of_Life_Program
 				{
 					if (generations >= 1)
 					{
-						scratchPad[x,y] = false;
+						scratchPad[x, y] = false;
 					}
 					//get neighborcount
-					int count = CountNeighborsFinite(x, y); ////////how get from switch from CountNeighborsFinite to CountNeighbors Toroidal?Maybe separate If condition?
+					int count = CountNeighborsFinite(x, y);
 
 					if (universe[x, y] == true) //if cell is currently alive
 					{
@@ -108,6 +107,11 @@ namespace KL___Game_of_Life_Program
                     }	
 				}
 			}
+			//pretty sure need to swap here?
+			bool[,] temp = universe;
+			universe = scratchPad;
+			scratchPad = temp;
+			
 			//invalidate graphics panel /// is this the right spot?
 			graphicsPanel1.Invalidate();
 
@@ -273,6 +277,8 @@ namespace KL___Game_of_Life_Program
         private void toolStripButton1_Click(object sender, EventArgs e)
         {
 			timer.Enabled = true; //turn on/run
+			NextGeneration();
+			//graphicsPanel1.Invalidate();
         }
 
         private void toolStripButton2_Click(object sender, EventArgs e)
@@ -345,6 +351,14 @@ namespace KL___Game_of_Life_Program
 				RandomizeFromSeed(seed);
 				graphicsPanel1.Invalidate();
 			}
+        }
+
+        private void Forward1Gen_Click(object sender, EventArgs e)
+        {
+			for (int i = 0; i < 1; i++)
+            {
+				NextGeneration();
+            }
         }
     }
 }
