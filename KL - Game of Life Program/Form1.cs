@@ -39,6 +39,21 @@ namespace KL___Game_of_Life_Program
 			timer.Enabled = false; // start timer running //true = run, false = stop
 		}
 
+		private void RandomizeFromTime()
+		{
+			Random rand = new Random();
+			for (int y = 0; y < universe.GetLength(1); y++)
+			{
+				for (int x = 0; x < universe.GetLength(0); x++)
+				{
+					rand.Next(0, 3);
+					if(rand.Next() == 0)
+                    {
+						
+                    }
+				}
+			}
+		}
 		// Calculate the next generation of cells
 		private void NextGeneration()
 		{
@@ -49,7 +64,6 @@ namespace KL___Game_of_Life_Program
 				// Iterate through the universe in the x, left to right
 				for (int x = 0; x < universe.GetLength(0); x++)
 				{
-					/////wanted to put this outside for loops but I think this is right spot.
 					if (generations >= 1)
 					{
 						scratchPad[x,y] = false;
@@ -60,25 +74,19 @@ namespace KL___Game_of_Life_Program
 					if (universe[x, y] == true) //if cell is currently alive
 					{
 						if (count < 2)
-						{
-							scratchPad[x, y] = false;
-						}
+						{ scratchPad[x, y] = false; }
+						
 						if (count > 3)
-						{
-							scratchPad[x, y] = false;
-						}
+						{ scratchPad[x, y] = false; }
+						
 						if (count == 2 || count == 3)
-						{
-							scratchPad[x, y] = true;
-						}
+						{ scratchPad[x, y] = true; }
 					}
 					else //if cell currently dead
 					{
-						if (count == 3)
-						{
-							scratchPad[x, y] = true;
-						}
-					}	
+                        if (count == 3)
+                        { scratchPad[x, y] = true; }
+                    }	
 				}
 			}
 			//invalidate graphics panel /// is this the right spot?
