@@ -271,21 +271,21 @@ namespace KL___Game_of_Life_Program
 					universe[x, y] = false;
 				}
 			}
+			generations = 0;
+			toolStripStatusLabelGenerations.Text = "Generations = " + generations.ToString();
 			graphicsPanel1.Invalidate();
 		}
 
-        private void toolStripButton1_Click(object sender, EventArgs e)
+        private void toolStripButton1_Click(object sender, EventArgs e) //start
         {
 			timer.Enabled = true; //turn on/run
 			NextGeneration();
-			//graphicsPanel1.Invalidate();
         }
 
-        private void toolStripButton2_Click(object sender, EventArgs e)
+        private void toolStripButton2_Click(object sender, EventArgs e) //pause
         {
 			timer.Enabled = false; //turn off.stop
         }
-
 
         private void cellColorToolStripMenuItem_Click(object sender, EventArgs e)
         {

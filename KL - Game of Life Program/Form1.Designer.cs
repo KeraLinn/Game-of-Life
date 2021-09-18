@@ -395,7 +395,7 @@ namespace KL___Game_of_Life_Program
             this.Start.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.Start.Name = "Start";
             this.Start.Size = new System.Drawing.Size(23, 22);
-            this.Start.Text = "toolStripButton1";
+            this.Start.Text = "StartButton";
             this.Start.Click += new System.EventHandler(this.toolStripButton1_Click);
             // 
             // Pause
@@ -405,7 +405,7 @@ namespace KL___Game_of_Life_Program
             this.Pause.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.Pause.Name = "Pause";
             this.Pause.Size = new System.Drawing.Size(23, 22);
-            this.Pause.Text = "toolStripButton2";
+            this.Pause.Text = "PauseButton";
             this.Pause.Click += new System.EventHandler(this.toolStripButton2_Click);
             // 
             // Forward1Gen
