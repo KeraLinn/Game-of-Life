@@ -37,7 +37,6 @@ namespace KL___Game_of_Life_Program
             this.openToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator = new System.Windows.Forms.ToolStripSeparator();
             this.saveToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.saveAsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.runToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -62,7 +61,6 @@ namespace KL___Game_of_Life_Program
             this.Start = new System.Windows.Forms.ToolStripButton();
             this.Pause = new System.Windows.Forms.ToolStripButton();
             this.Forward1Gen = new System.Windows.Forms.ToolStripButton();
-            this.Clear = new System.Windows.Forms.ToolStripButton();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabelGenerations = new System.Windows.Forms.ToolStripStatusLabel();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
@@ -106,7 +104,6 @@ namespace KL___Game_of_Life_Program
             this.openToolStripMenuItem,
             this.toolStripSeparator,
             this.saveToolStripMenuItem,
-            this.saveAsToolStripMenuItem,
             this.toolStripSeparator1,
             this.exitToolStripMenuItem});
             this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
@@ -146,13 +143,6 @@ namespace KL___Game_of_Life_Program
             this.saveToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.S)));
             this.saveToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.saveToolStripMenuItem.Text = "&Save";
-            // 
-            // saveAsToolStripMenuItem
-            // 
-            this.saveAsToolStripMenuItem.Name = "saveAsToolStripMenuItem";
-            this.saveAsToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.saveAsToolStripMenuItem.Text = "Save &As";
-            this.saveAsToolStripMenuItem.Click += new System.EventHandler(this.saveAsToolStripMenuItem_Click);
             // 
             // toolStripSeparator1
             // 
@@ -276,8 +266,7 @@ namespace KL___Game_of_Life_Program
             this.toolStripSeparator6,
             this.Start,
             this.Pause,
-            this.Forward1Gen,
-            this.Clear});
+            this.Forward1Gen});
             this.toolStrip1.Location = new System.Drawing.Point(0, 24);
             this.toolStrip1.Name = "toolStrip1";
             this.toolStrip1.Size = new System.Drawing.Size(573, 25);
@@ -302,6 +291,7 @@ namespace KL___Game_of_Life_Program
             this.openToolStripButton.Name = "openToolStripButton";
             this.openToolStripButton.Size = new System.Drawing.Size(23, 22);
             this.openToolStripButton.Text = "&Open";
+            this.openToolStripButton.Click += new System.EventHandler(this.openToolStripMenuItem_Click);
             // 
             // saveToolStripButton
             // 
@@ -311,6 +301,7 @@ namespace KL___Game_of_Life_Program
             this.saveToolStripButton.Name = "saveToolStripButton";
             this.saveToolStripButton.Size = new System.Drawing.Size(23, 22);
             this.saveToolStripButton.Text = "&Save";
+            this.saveToolStripButton.Click += new System.EventHandler(this.saveAsToolStripMenuItem_Click);
             // 
             // toolStripSeparator6
             // 
@@ -346,15 +337,6 @@ namespace KL___Game_of_Life_Program
             this.Forward1Gen.Size = new System.Drawing.Size(23, 22);
             this.Forward1Gen.Text = "toolStripButton4";
             this.Forward1Gen.Click += new System.EventHandler(this.Forward1Gen_Click);
-            // 
-            // Clear
-            // 
-            this.Clear.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.Clear.Image = global::KL___Game_of_Life_Program.Properties.Resources.ClearWindowContent_16x;
-            this.Clear.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.Clear.Name = "Clear";
-            this.Clear.Size = new System.Drawing.Size(23, 22);
-            this.Clear.Text = "toolStripButton5";
             // 
             // statusStrip1
             // 
@@ -512,7 +494,6 @@ namespace KL___Game_of_Life_Program
 		private System.Windows.Forms.ToolStripMenuItem openToolStripMenuItem;
 		private System.Windows.Forms.ToolStripSeparator toolStripSeparator;
 		private System.Windows.Forms.ToolStripMenuItem saveToolStripMenuItem;
-		private System.Windows.Forms.ToolStripMenuItem saveAsToolStripMenuItem;
 		private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
 		private System.Windows.Forms.ToolStripMenuItem exitToolStripMenuItem;
 		private System.Windows.Forms.ToolStripButton newToolStripButton;
@@ -523,7 +504,6 @@ namespace KL___Game_of_Life_Program
 		private System.Windows.Forms.ToolStripButton Start;
 		private System.Windows.Forms.ToolStripButton Pause;
 		private System.Windows.Forms.ToolStripButton Forward1Gen;
-		private System.Windows.Forms.ToolStripButton Clear;
         private System.Windows.Forms.ToolStripMenuItem settingsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem backgroundColorToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem cellColorToolStripMenuItem;
