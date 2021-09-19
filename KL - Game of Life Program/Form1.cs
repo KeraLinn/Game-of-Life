@@ -388,7 +388,7 @@ namespace KL___Game_of_Life_Program
 			OpenFileDialog dlg = new OpenFileDialog();
 			dlg.Filter = "All Files|*.*|Cells|*.cells";
 			dlg.FilterIndex = 2; dlg.DefaultExt = "cells";
-			if(DialogResult.OK == ShowDialog())
+			if(DialogResult.OK == dlg.ShowDialog())
             {
 				StreamReader reader = new StreamReader(dlg.FileName);
 				int maxWidth = 0;
@@ -414,12 +414,14 @@ namespace KL___Game_of_Life_Program
 					if (row.Contains("!")) { continue; }
 					else
 					{
+						int yPos = 0;
 						for(int xPos = 0; xPos < row.Length; xPos++)
                         {
 							if(row[xPos] == 'O')
-							{ universe[maxWidth,maxHeight] = true; }
-                            else { universe[maxWidth, maxHeight] = false; }
+							{ universe[xPos,yPos] = true; }
+                            else { universe[xPos,yPos] = false; }
                         }
+						yPos++;
 					}
 				}
 				reader.Close();
