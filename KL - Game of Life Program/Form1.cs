@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.IO;
 
 namespace KL___Game_of_Life_Program
 {
@@ -354,6 +355,33 @@ namespace KL___Game_of_Life_Program
         private void fromTimeToolStripMenuItem_Click(object sender, EventArgs e)
         {
 			RandomizeFromTime();
+        }
+
+        private void saveAsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+			SaveFileDialog dlg = new SaveFileDialog();
+			dlg.Filter = "All Files|*.*|Cells|*.cells";
+			dlg.FilterIndex = 2; dlg.DefaultExt = "cells";
+
+			if (DialogResult.OK == dlg.ShowDialog())
+			{
+				StreamWriter writer = new StreamWriter(dlg.FileName);
+				writer.WriteLine("!Game of Life Pattern");
+
+				for (int y = 0; y < universe.GetLength(1); y++)
+				{
+					String currentRow = string.Empty;
+
+					for (int x = 0; x < universe.GetLength(0); x++)
+					{
+						if(universe[x,y] == true)
+                        { currentRow += 'O'; }
+                        else { currentRow += '.'; }
+					}
+					writer.WriteLine(currentRow);
+				}
+				writer.Close();
+			}
         }
     }
 }

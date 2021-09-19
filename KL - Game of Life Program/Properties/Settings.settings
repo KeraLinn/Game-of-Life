@@ -3,7 +3,7 @@
   <Profiles />
   <Settings>
     <Setting Name="BackgroundColor" Type="System.Drawing.Color" Scope="User">
-      <Value Profile="(Default)">MistyRose</Value>
+      <Value Profile="(Default)">SeaShell</Value>
     </Setting>
   </Settings>
 </SettingsFile>
