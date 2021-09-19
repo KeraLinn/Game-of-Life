@@ -51,6 +51,7 @@ namespace KL___Game_of_Life_Program
             this.ChangeSizeOK.TabIndex = 0;
             this.ChangeSizeOK.Text = "Apply";
             this.ChangeSizeOK.UseVisualStyleBackColor = true;
+            this.ChangeSizeOK.Click += new System.EventHandler(this.ChangeSizeOK_Click);
             // 
             // ChangeSizeCancel
             // 
@@ -136,6 +137,7 @@ namespace KL___Game_of_Life_Program
             this.Name = "ChangeSize_Modal_Dialog";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Set Universe Size";
+            this.Load += new System.EventHandler(this.ChangeSize_Modal_Dialog_Load);
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownHeight)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownWidth)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownTimerInterval)).EndInit();

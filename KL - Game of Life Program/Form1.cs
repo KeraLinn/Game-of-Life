@@ -133,6 +133,7 @@ namespace KL___Game_of_Life_Program
 					if (universe[xCheck, yCheck] == true) neighborNum++;
 				}
 			}
+			StripStatusLabelAlive.Text = "Alive: " + neighborNum;
 			return neighborNum;
 		}
 		//CountNeighborsToroidal 
@@ -157,10 +158,10 @@ namespace KL___Game_of_Life_Program
 					if (universe[xCheck, yCheck] == true) neighborNum++;
 				}
 			}
+			StripStatusLabelAlive.Text = "Alive: " + neighborNum;
 			return neighborNum;
 		}
 		#endregion
-
 		// TimerAndGraphics
 		#region
 		// The event called by the timer every Interval milliseconds.

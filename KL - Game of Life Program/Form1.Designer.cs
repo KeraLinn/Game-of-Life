@@ -77,7 +77,7 @@ namespace KL___Game_of_Life_Program
             this.fromTimeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.fromSeedToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.graphicsPanel1 = new KL___Game_of_Life_Program.GraphicsPanel();
-            this.AliveStripStatus = new System.Windows.Forms.ToolStripStatusLabel();
+            this.StripStatusLabelAlive = new System.Windows.Forms.ToolStripStatusLabel();
             this.menuStrip1.SuspendLayout();
             this.toolStrip1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
@@ -343,7 +343,7 @@ namespace KL___Game_of_Life_Program
             // 
             this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripStatusLabelGenerations,
-            this.AliveStripStatus});
+            this.StripStatusLabelAlive});
             this.statusStrip1.Location = new System.Drawing.Point(0, 323);
             this.statusStrip1.Name = "statusStrip1";
             this.statusStrip1.Size = new System.Drawing.Size(573, 22);
@@ -353,8 +353,8 @@ namespace KL___Game_of_Life_Program
             // toolStripStatusLabelGenerations
             // 
             this.toolStripStatusLabelGenerations.Name = "toolStripStatusLabelGenerations";
-            this.toolStripStatusLabelGenerations.Size = new System.Drawing.Size(90, 17);
-            this.toolStripStatusLabelGenerations.Text = "Generations = 0";
+            this.toolStripStatusLabelGenerations.Size = new System.Drawing.Size(84, 17);
+            this.toolStripStatusLabelGenerations.Text = "Generations = ";
             // 
             // contextMenuStrip1
             // 
@@ -460,11 +460,11 @@ namespace KL___Game_of_Life_Program
             this.graphicsPanel1.Paint += new System.Windows.Forms.PaintEventHandler(this.graphicsPanel1_Paint);
             this.graphicsPanel1.MouseClick += new System.Windows.Forms.MouseEventHandler(this.graphicsPanel1_MouseClick);
             // 
-            // AliveStripStatus
+            // StripStatusLabelAlive
             // 
-            this.AliveStripStatus.Name = "AliveStripStatus";
-            this.AliveStripStatus.Size = new System.Drawing.Size(39, 17);
-            this.AliveStripStatus.Text = "Alive: ";
+            this.StripStatusLabelAlive.Name = "StripStatusLabelAlive";
+            this.StripStatusLabelAlive.Size = new System.Drawing.Size(39, 17);
+            this.StripStatusLabelAlive.Text = "Alive: ";
             // 
             // Form1
             // 
@@ -475,6 +475,7 @@ namespace KL___Game_of_Life_Program
             this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.toolStrip1);
             this.Controls.Add(this.menuStrip1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "Form1";
             this.Text = "Form1";
@@ -539,7 +540,7 @@ namespace KL___Game_of_Life_Program
         private System.Windows.Forms.ToolStripMenuItem randomizeToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem fromSeedToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem fromTimeToolStripMenuItem;
-        private System.Windows.Forms.ToolStripStatusLabel AliveStripStatus;
+        private System.Windows.Forms.ToolStripStatusLabel StripStatusLabelAlive;
     }
 }
 
