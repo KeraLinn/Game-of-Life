@@ -51,6 +51,7 @@ namespace KL___Game_of_Life_Program
 					else { universe[x, y] = false; }
 				}
 			}
+			HowManyAlive();
 			graphicsPanel1.Invalidate();
 		}
 		private void RandomizeFromSeed(int seed)
@@ -65,6 +66,7 @@ namespace KL___Game_of_Life_Program
 					else { universe[x, y] = false; }
 				}
 			}
+			HowManyAlive();
 			graphicsPanel1.Invalidate();
 		}
 		// Calculate the next generation of cells
@@ -85,10 +87,10 @@ namespace KL___Game_of_Life_Program
 						if (count < 2)
 						{ scratchPad[x, y] = false; }
 						
-						if (count > 3)
+						else if (count > 3)
 						{ scratchPad[x, y] = false; }
 						
-						if (count == 2 || count == 3)
+						else if (count == 2 || count == 3)
 						{ scratchPad[x, y] = true; }
 					}
 					else //if cell currently dead
@@ -98,6 +100,7 @@ namespace KL___Game_of_Life_Program
                     }	
 				}
 			}
+			HowManyAlive();
 			bool[,] temp = universe;
 			universe = scratchPad;
 			scratchPad = temp;
@@ -109,6 +112,23 @@ namespace KL___Game_of_Life_Program
 
 			// Update status strip generations
 			toolStripStatusLabelGenerations.Text = "Generations = " + generations.ToString();
+			HowManyAlive();
+		}
+		private void HowManyAlive()
+		{
+			int alive = 0;
+			for (int y = 0; y < universe.GetLength(1); y++)
+			{
+				for (int x = 0; x < universe.GetLength(0); x++)
+				{
+					if (universe[x,y] == true)
+                    {
+						alive++;
+                    }
+				}
+
+			}
+			StripStatusLabelAlive.Text = "Alive: " + alive.ToString();
 		}
 		private int CountNeighborsFinite(int x, int y)
 		{
@@ -130,7 +150,7 @@ namespace KL___Game_of_Life_Program
 					if (universe[xCheck, yCheck] == true) neighborNum++;
 				}
 			}
-			StripStatusLabelAlive.Text = "Alive: " + neighborNum;
+			HowManyAlive();
 			return neighborNum;
 		}
 		//CountNeighborsToroidal 
@@ -155,7 +175,7 @@ namespace KL___Game_of_Life_Program
 					if (universe[xCheck, yCheck] == true) neighborNum++;
 				}
 			}
-			StripStatusLabelAlive.Text = "Alive: " + neighborNum;
+			HowManyAlive();
 			return neighborNum;
 		}
 		#endregion
@@ -234,7 +254,7 @@ namespace KL___Game_of_Life_Program
 
 				// Toggle the cell's state
 				universe[x, y] = !universe[x, y];
-
+				HowManyAlive();
 				// Tell Windows you need to repaint
 				///////line called the most thruout program
 				graphicsPanel1.Invalidate();
@@ -261,7 +281,9 @@ namespace KL___Game_of_Life_Program
 				}
 			}
 			generations = 0;
+			int alive = 0;
 			toolStripStatusLabelGenerations.Text = "Generations = " + generations.ToString();
+			StripStatusLabelAlive.Text = "Alive: " + alive.ToString();
 			graphicsPanel1.Invalidate();
 		}
 
@@ -385,7 +407,7 @@ namespace KL___Game_of_Life_Program
         {
 			OpenFileDialog dlg = new OpenFileDialog();
 			dlg.Filter = "All Files|*.*|Cells|*.cells";
-			dlg.FilterIndex = 2; dlg.DefaultExt = "cells";
+			dlg.FilterIndex = 2;
 			if(DialogResult.OK == dlg.ShowDialog())
             {
 				StreamReader reader = new StreamReader(dlg.FileName);
@@ -406,20 +428,20 @@ namespace KL___Game_of_Life_Program
 
 				reader.BaseStream.Seek(0, SeekOrigin.Begin);
 
-				while(!reader.EndOfStream)
+				while (!reader.EndOfStream)
                 {
 					string row = reader.ReadLine();
 					if (row.Contains("!")) { continue; }
 					else
-					{
-						int yPos = 0;
+					{	
 						for(int xPos = 0; xPos < row.Length; xPos++)
                         {
+							int yPos = 0;
 							if(row[xPos] == 'O')
 							{ universe[xPos,yPos] = true; }
                             else { universe[xPos,yPos] = false; }
-                        }
-						yPos++;
+							yPos++;
+						}
 					}
 				}
 				reader.Close();
@@ -441,7 +463,7 @@ namespace KL___Game_of_Life_Program
             {
 				universe = new bool[dlg.Height, dlg.Width];
 				scratchPad = new bool[dlg.Height, dlg.Width];
-				timer.Interval = dlg.
+				//timer.Interval = dlg.
             }
         }
     }
