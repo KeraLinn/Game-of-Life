@@ -76,10 +76,7 @@ namespace KL___Game_of_Life_Program
 				// Iterate through the universe in the x, left to right
 				for (int x = 0; x < universe.GetLength(0); x++)
 				{
-					if (generations >= 1)
-					{
-						scratchPad[x, y] = false;
-					}
+					scratchPad[x, y] = false;
 					//get neighborcount
 					int count = CountNeighborsFinite(x, y);
 
@@ -428,5 +425,24 @@ namespace KL___Game_of_Life_Program
 				reader.Close();
             }
 		}
+
+		private void ResizeOptions(int height, int width)
+        {
+			height = universe.GetLength(1);
+			width = universe.GetLength(0);
+			
+        }
+        private void optionsToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+			ChangeSize_Modal_Dialog dlg = new ChangeSize_Modal_Dialog();
+			dlg.Height = universe.GetLength(1);
+			dlg.Width = universe.GetLength(0);
+			if(DialogResult.OK == dlg.ShowDialog())
+            {
+				universe = new bool[dlg.Height, dlg.Width];
+				scratchPad = new bool[dlg.Height, dlg.Width];
+				timer.Interval = dlg.
+            }
+        }
     }
 }

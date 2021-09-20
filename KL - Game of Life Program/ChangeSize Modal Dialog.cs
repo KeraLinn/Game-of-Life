@@ -17,7 +17,7 @@ namespace KL___Game_of_Life_Program
             InitializeComponent();
         }
 
-        private void ChangeSizeOK_Click(object sender, EventArgs e)
+        private void numericUpDownHeight_ValueChanged(object sender, EventArgs e)
         {
 
         }
