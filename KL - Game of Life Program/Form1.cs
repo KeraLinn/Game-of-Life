@@ -153,7 +153,6 @@ namespace KL___Game_of_Life_Program
 			return neighborNum;
 		}
 		//CountNeighborsToroidal 
-		#region
 		private int CountNeighborsToroidal(int x, int y)
 		{
 			int neighborNum = 0;
@@ -177,9 +176,7 @@ namespace KL___Game_of_Life_Program
 			HowManyAlive();
 			return neighborNum;
 		}
-		#endregion
 		// TimerAndGraphics
-		#region
 		// The event called by the timer every Interval milliseconds.
 		//causes game to run
 		private void Timer_Tick(object sender, EventArgs e)
@@ -217,23 +214,33 @@ namespace KL___Game_of_Life_Program
 					cellRect.Width = cellWidth;
 					cellRect.Height = cellHeight;
 
+					//font&string info for neighborcount
+					Font font = new Font("Arial", 20f);
+					StringFormat stringFormat = new StringFormat();
+					stringFormat.Alignment = StringAlignment.Center;
+					stringFormat.LineAlignment = StringAlignment.Center;
+
 					// Fill the cell with a brush if alive
 					if (universe[x, y] == true)
-					{
+					{ 
 						e.Graphics.FillRectangle(cellBrush, cellRect);
-					}
 
+						//---poss here to add the bit about neighborct. bc it only needs a ct if it's alive?
+						Rectangle rect = new Rectangle(0, 0, 100, 100);
+						int neighbors = 8;
+						e.Graphics.DrawString(neighbors.ToString(), font, Brushes.Black, rect, stringFormat);
+					}
 					// Outline the cell with a pen
 					e.Graphics.DrawRectangle(gridPen, cellRect.X, cellRect.Y, cellRect.Width, cellRect.Height);
 				}
 			}
-
-			// Cleaning up pens and brushes
+			///////////---------NOTE TO SELF: I am going to experiment showing the neighbor count in the cells within the paint method above.			
+			///////////---my thought is that then every time the graphics panel is invalidated, and the grid is redrawn, the neighbor ct should update too.
+			//// Cleaning up pens and brushes
 			////not the same as delete but it signifies done w it
 			gridPen.Dispose();
 			cellBrush.Dispose();
 		}
-
 		private void graphicsPanel1_MouseClick(object sender, MouseEventArgs e)
 		{
 			// If the left mouse button was clicked
@@ -261,7 +268,6 @@ namespace KL___Game_of_Life_Program
 		}
 		/// never call paint directly
 		/// never put invalidate within the paint
-		#endregion
 
 
 		private void exitToolStripMenuItem_Click(object sender, EventArgs e)
