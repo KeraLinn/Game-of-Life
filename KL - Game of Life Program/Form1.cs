@@ -39,36 +39,7 @@ namespace KL___Game_of_Life_Program
 			timer.Enabled = false; // start timer running //true = run, false = stop
 		}
 
-		private void RandomizeFromTime()
-		{
-			Random rand = new Random();
-			for (int y = 0; y < universe.GetLength(1); y++)
-			{
-				for (int x = 0; x < universe.GetLength(0); x++)
-				{
-					if (rand.Next(0,2) == 1)
-					{ universe[x, y] = true; }
-					else { universe[x, y] = false; }
-				}
-			}
-			HowManyAlive();
-			graphicsPanel1.Invalidate();
-		}
-		private void RandomizeFromSeed(int seed)
-        {
-			Random rand = new Random(seed);
-			for (int y = 0; y < universe.GetLength(1); y++)
-			{
-				for (int x = 0; x < universe.GetLength(0); x++)
-				{
-					if (rand.Next(0,2) == 1)
-					{ universe[x, y] = true; }
-					else { universe[x, y] = false; }
-				}
-			}
-			HowManyAlive();
-			graphicsPanel1.Invalidate();
-		}
+
 		// Calculate the next generation of cells
 		private void NextGeneration()
 		{
@@ -176,7 +147,6 @@ namespace KL___Game_of_Life_Program
 			HowManyAlive();
 			return neighborNum;
 		}
-		// TimerAndGraphics
 		// The event called by the timer every Interval milliseconds.
 		//causes game to run
 		private void Timer_Tick(object sender, EventArgs e)
@@ -269,12 +239,108 @@ namespace KL___Game_of_Life_Program
 		/// never call paint directly
 		/// never put invalidate within the paint
 
+		#region SettingsTabClickEvents - Colors, Reset, Reload
+		private void cellColorToolStripMenuItem_Click(object sender, EventArgs e)
+		{
+			ColorDialog dlg = new ColorDialog();
+			dlg.Color = cellColor;
+			if (DialogResult.OK == dlg.ShowDialog())
+			{
+				cellColor = dlg.Color;
+				graphicsPanel1.Invalidate();
+			}
+		}
 
+		private void gridColorToolStripMenuItem_Click(object sender, EventArgs e)
+		{
+			ColorDialog dlg = new ColorDialog();
+			dlg.Color = gridColor;
+			if (DialogResult.OK == dlg.ShowDialog())
+			{
+				gridColor = dlg.Color;
+				graphicsPanel1.Invalidate();
+			}
+		}
+
+		//grid x10 is like the "big grid" of it, like the shape of tic tac toe whereas the grid is every cell outline
+		private void backgroundColorToolStripMenuItem_Click(object sender, EventArgs e)
+		{
+			ColorDialog dlg = new ColorDialog();
+
+			dlg.Color = graphicsPanel1.BackColor;
+			if (DialogResult.OK == dlg.ShowDialog())
+			{
+				graphicsPanel1.BackColor = dlg.Color;
+				graphicsPanel1.Invalidate();
+			}
+
+		}
+		private void resetToolStripMenuItem_Click(object sender, EventArgs e)
+		{
+			Properties.Settings.Default.Reset();
+			graphicsPanel1.BackColor = Properties.Settings.Default.BackgroundColor;
+		}
+
+		private void reloadToolStripMenuItem_Click(object sender, EventArgs e)
+		{
+			Properties.Settings.Default.Reload();
+			graphicsPanel1.BackColor = Properties.Settings.Default.BackgroundColor;
+		}
+		#endregion SettingsTabClickEvents - Colors, Reset, Reload
+
+		#region Randomize - Functions and Click Events
+		private void RandomizeFromTime()
+		{
+			Random rand = new Random();
+			for (int y = 0; y < universe.GetLength(1); y++)
+			{
+				for (int x = 0; x < universe.GetLength(0); x++)
+				{
+					if (rand.Next(0, 2) == 1)
+					{ universe[x, y] = true; }
+					else { universe[x, y] = false; }
+				}
+			}
+			HowManyAlive();
+			graphicsPanel1.Invalidate();
+		}
+		private void RandomizeFromSeed(int seed)
+		{
+			Random rand = new Random(seed);
+			for (int y = 0; y < universe.GetLength(1); y++)
+			{
+				for (int x = 0; x < universe.GetLength(0); x++)
+				{
+					if (rand.Next(0, 2) == 1)
+					{ universe[x, y] = true; }
+					else { universe[x, y] = false; }
+				}
+			}
+			HowManyAlive();
+			graphicsPanel1.Invalidate();
+		}
+		private void fromSeedToolStripMenuItem_Click(object sender, EventArgs e)
+		{
+			RandomizeFromSeed_Modal_Dialog dlg = new RandomizeFromSeed_Modal_Dialog();
+			dlg.SeedInteger = 0;
+			if (DialogResult.OK == dlg.ShowDialog())
+			{
+				int seed = dlg.SeedInteger;
+				RandomizeFromSeed(seed);
+				graphicsPanel1.Invalidate();
+			}
+		}
+		private void fromTimeToolStripMenuItem_Click(object sender, EventArgs e)
+		{
+			RandomizeFromTime();
+		}
+		#endregion Randomize - Functions and Click Events
+
+		#region FileTab - New, Open, Save, Exit
 		private void exitToolStripMenuItem_Click(object sender, EventArgs e)
 		{
 			this.Close(); //destroying the main window to shut down program
 		}
-
 		private void newToolStripMenuItem_Click(object sender, EventArgs e)
 		{
 			for (int y = 0; y < universe.GetLength(1); y++)
@@ -290,99 +356,8 @@ namespace KL___Game_of_Life_Program
 			HowManyAlive();
 			graphicsPanel1.Invalidate();
 		}
-
-        private void toolStripButton1_Click(object sender, EventArgs e) //start
-        {
-			timer.Enabled = true; //turn on/run
-			NextGeneration();
-        }
-
-        private void toolStripButton2_Click(object sender, EventArgs e) //pause
-        {
-			timer.Enabled = false; //turn off.stop
-        }
-
-        private void cellColorToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-			ColorDialog dlg = new ColorDialog();
-			dlg.Color = cellColor;
-			if (DialogResult.OK == dlg.ShowDialog())
-			{
-				cellColor = dlg.Color;
-				graphicsPanel1.Invalidate();
-			}
-		}
-
-        private void gridColorToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-			ColorDialog dlg = new ColorDialog();
-			dlg.Color = gridColor;
-			if (DialogResult.OK == dlg.ShowDialog())
-			{
-				gridColor = dlg.Color;
-				graphicsPanel1.Invalidate();
-			}
-		}
-
-		//grid x10 is like the "big grid" of it, like the shape of tic tac toe whereas the grid is every cell outline
-        private void backgroundColorToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-			ColorDialog dlg = new ColorDialog();
-			
-			dlg.Color = graphicsPanel1.BackColor;
-			if(DialogResult.OK == dlg.ShowDialog())
-            {
-				graphicsPanel1.BackColor = dlg.Color;
-				graphicsPanel1.Invalidate();
-			}
-			
-        }
-
-        private void resetToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-			Properties.Settings.Default.Reset();
-			graphicsPanel1.BackColor = Properties.Settings.Default.BackgroundColor;
-        }
-
-        private void reloadToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-			Properties.Settings.Default.Reload();
-			graphicsPanel1.BackColor = Properties.Settings.Default.BackgroundColor;
-		}
-
-        private void Form1_FormClosed(object sender, FormClosedEventArgs e)
-        {
-			Properties.Settings.Default.BackgroundColor = graphicsPanel1.BackColor;
-			Properties.Settings.Default.Save();
-        }
-
-        private void fromSeedToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-			RandomizeFromSeed_Modal_Dialog dlg = new RandomizeFromSeed_Modal_Dialog();
-			dlg.SeedInteger = 0;
-			if (DialogResult.OK == dlg.ShowDialog())
-			{
-				int seed = dlg.SeedInteger;
-				RandomizeFromSeed(seed);
-				graphicsPanel1.Invalidate();
-			}
-        }
-
-        private void Forward1Gen_Click(object sender, EventArgs e)
-        {
-			for (int i = 0; i < 1; i++)
-            {
-				NextGeneration();
-            }
-        }
-
-        private void fromTimeToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-			RandomizeFromTime();
-        }
-
-        private void saveAsToolStripMenuItem_Click(object sender, EventArgs e)
-        {
+		private void saveAsToolStripMenuItem_Click(object sender, EventArgs e)
+		{
 			SaveFileDialog dlg = new SaveFileDialog();
 			dlg.Filter = "All Files|*.*|Cells|*.cells";
 			dlg.FilterIndex = 2; dlg.DefaultExt = "cells";
@@ -398,59 +373,85 @@ namespace KL___Game_of_Life_Program
 
 					for (int x = 0; x < universe.GetLength(0); x++)
 					{
-						if(universe[x,y] == true)
-                        { currentRow += 'O'; }
-                        else { currentRow += '.'; }
+						if (universe[x, y] == true)
+						{ currentRow += 'O'; }
+						else { currentRow += '.'; }
 					}
 					writer.WriteLine(currentRow);
 				}
 				writer.Close();
 			}
-        }
-        private void openToolStripMenuItem_Click(object sender, EventArgs e)
-        {
+		}
+		private void openToolStripMenuItem_Click(object sender, EventArgs e)
+		{
 			OpenFileDialog dlg = new OpenFileDialog();
 			dlg.Filter = "All Files|*.*|Cells|*.cells";
 			dlg.FilterIndex = 2;
-			if(DialogResult.OK == dlg.ShowDialog())
-            {
+			if (DialogResult.OK == dlg.ShowDialog())
+			{
 				StreamReader reader = new StreamReader(dlg.FileName);
 				int maxWidth = 0;
 				int maxHeight = 0;
-				while(!reader.EndOfStream)
-                {
+				while (!reader.EndOfStream)
+				{
 					string row = reader.ReadLine();
-					if(row.Contains("!")) { continue; }
-                    else
-                    {
+					if (row.Contains("!")) { continue; }
+					else
+					{
 						maxHeight++;
-						if(row.Length > maxWidth) { maxWidth = row.Length; }
-                    }
-                }
+						if (row.Length > maxWidth) { maxWidth = row.Length; }
+					}
+				}
 				universe = new bool[maxWidth, maxHeight];
 				scratchPad = new bool[maxWidth, maxHeight];
 
 				reader.BaseStream.Seek(0, SeekOrigin.Begin);
 
 				while (!reader.EndOfStream)
-                {
+				{
 					string row = reader.ReadLine();
 					if (row.Contains("!")) { continue; }
 					else
-					{	
-						for(int xPos = 0; xPos < row.Length; xPos++)
-                        {
+					{
+						for (int xPos = 0; xPos < row.Length; xPos++)
+						{
 							int yPos = 0;
-							if(row[xPos] == 'O')
-							{ universe[xPos,yPos] = true; }
-                            else { universe[xPos,yPos] = false; }
+							if (row[xPos] == 'O')
+							{ universe[xPos, yPos] = true; }
+							else { universe[xPos, yPos] = false; }
 							yPos++;
 						}
 					}
 				}
 				reader.Close();
-            }
+			}
 		}
+		#endregion FileTab - New, Open, Save, Exit
+
+		#region ToolStrip - Start, Pause, Forward 1 Gen
+		private void toolStripButton1_Click(object sender, EventArgs e) //start
+		{
+			timer.Enabled = true; //turn on/run
+			NextGeneration();
+		}
+		private void toolStripButton2_Click(object sender, EventArgs e) //pause
+		{
+			timer.Enabled = false; //turn off.stop
+		}
+		private void Forward1Gen_Click(object sender, EventArgs e)
+		{
+			for (int i = 0; i < 1; i++)
+			{
+				NextGeneration();
+			}
+		}
+		#endregion ToolStrip - Start, Pause, Forward 1 Gen
+
+		private void Form1_FormClosed(object sender, FormClosedEventArgs e)
+        {
+			Properties.Settings.Default.BackgroundColor = graphicsPanel1.BackColor;
+			Properties.Settings.Default.Save();
+        }
 
 		private void ResizeOptions(int height, int width)
         {
