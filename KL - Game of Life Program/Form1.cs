@@ -100,7 +100,6 @@ namespace KL___Game_of_Life_Program
                     }	
 				}
 			}
-			HowManyAlive();
 			bool[,] temp = universe;
 			universe = scratchPad;
 			scratchPad = temp;
@@ -128,7 +127,7 @@ namespace KL___Game_of_Life_Program
 				}
 
 			}
-			StripStatusLabelAlive.Text = "Alive: " + alive.ToString();
+			StripStatusLabelAlive.Text = "Alive = " + alive.ToString();
 		}
 		private int CountNeighborsFinite(int x, int y)
 		{
@@ -281,9 +280,8 @@ namespace KL___Game_of_Life_Program
 				}
 			}
 			generations = 0;
-			int alive = 0;
 			toolStripStatusLabelGenerations.Text = "Generations = " + generations.ToString();
-			StripStatusLabelAlive.Text = "Alive: " + alive.ToString();
+			HowManyAlive();
 			graphicsPanel1.Invalidate();
 		}
 

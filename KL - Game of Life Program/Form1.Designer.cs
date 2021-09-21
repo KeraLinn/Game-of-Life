@@ -464,8 +464,8 @@ namespace KL___Game_of_Life_Program
             // StripStatusLabelAlive
             // 
             this.StripStatusLabelAlive.Name = "StripStatusLabelAlive";
-            this.StripStatusLabelAlive.Size = new System.Drawing.Size(39, 17);
-            this.StripStatusLabelAlive.Text = "Alive: ";
+            this.StripStatusLabelAlive.Size = new System.Drawing.Size(47, 17);
+            this.StripStatusLabelAlive.Text = "Alive = ";
             // 
             // Form1
             // 
