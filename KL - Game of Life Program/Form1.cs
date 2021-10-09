@@ -123,7 +123,6 @@ namespace KL___Game_of_Life_Program
 			HowManyAlive();
 			return neighborNum;
 		}
-		//CountNeighborsToroidal 
 		private int CountNeighborsToroidal(int x, int y)
 		{
 			int neighborNum = 0;
@@ -147,8 +146,7 @@ namespace KL___Game_of_Life_Program
 			HowManyAlive();
 			return neighborNum;
 		}
-		// The event called by the timer every Interval milliseconds.
-		//causes game to run
+		// The event called by the timer every Interval milliseconds causes game to run
 		private void Timer_Tick(object sender, EventArgs e)
 		{
 			NextGeneration();
@@ -198,6 +196,8 @@ namespace KL___Game_of_Life_Program
 					}
 					// Outline the cell with a pen
 					e.Graphics.DrawRectangle(gridPen, cellRect.X, cellRect.Y, cellRect.Width, cellRect.Height);
+					
+					//display neighborcount in cells
 					int neighborcount = CountNeighborsFinite(x, y);
 					if (neighborcount == 0)
 					{ continue; }
@@ -205,8 +205,6 @@ namespace KL___Game_of_Life_Program
 					{ e.Graphics.DrawString(neighborcount.ToString(), font, Brushes.Turquoise, cellRect, stringFormat); }
 				}
 			}
-			///////////---------NOTE TO SELF: I am going to experiment showing the neighbor count in the cells within the paint method above.			
-			///////////---my thought is that then every time the graphics panel is invalidated, and the grid is redrawn, the neighbor ct should update too.
 			//// Cleaning up pens and brushes
 			////not the same as delete but it signifies done w it
 			gridPen.Dispose();
@@ -413,10 +411,11 @@ namespace KL___Game_of_Life_Program
 
 				reader.BaseStream.Seek(0, SeekOrigin.Begin);
 
+				int yPos = 0;
 				while (!reader.EndOfStream)
 				{
 					string row = reader.ReadLine();
-					int yPos = 0;
+					
 					if (row.Contains("!")) { continue; }
 					else
 					{
@@ -425,9 +424,9 @@ namespace KL___Game_of_Life_Program
 							if (row[xPos] == 'O')
 							{ universe[xPos, yPos] = true; }
 							else { universe[xPos, yPos] = false; }
-							yPos++;
 						}
 					}
+					yPos++;
 				}
 				reader.Close();
 			}
