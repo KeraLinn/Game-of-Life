@@ -58,5 +58,29 @@ namespace KL___Game_of_Life_Program.Properties {
                 this["UniverseSizeWidth"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Black")]
+        public global::System.Drawing.Color gridColor {
+            get {
+                return ((global::System.Drawing.Color)(this["gridColor"]));
+            }
+            set {
+                this["gridColor"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Gray")]
+        public global::System.Drawing.Color cellColor {
+            get {
+                return ((global::System.Drawing.Color)(this["cellColor"]));
+            }
+            set {
+                this["cellColor"] = value;
+            }
+        }
     }
 }

@@ -279,7 +279,8 @@ namespace KL___Game_of_Life_Program
 		{
 			Properties.Settings.Default.Reset();
 			graphicsPanel1.BackColor = Properties.Settings.Default.BackgroundColor;
-			gridColor = Properties.Settings.Default;
+			gridColor = Properties.Settings.Default.gridColor;
+			cellColor = Properties.Settings.Default.cellColor;
 		}
 
 		private void reloadToolStripMenuItem_Click(object sender, EventArgs e)
