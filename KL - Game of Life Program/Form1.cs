@@ -14,8 +14,8 @@ namespace KL___Game_of_Life_Program
 	public partial class Form1 : Form //partial keyword is saying it's only a portion of the code for form 1, the rest of code is in form1.Designer.cs
 	{
 		// The universe array
-		bool[,] universe = new bool[30, 30];
-		bool[,] scratchPad = new bool[30, 30];
+		bool[,] universe = new bool[15, 15];
+		bool[,] scratchPad = new bool[15, 15];
 
 		// Drawing colors
 		Color gridColor = Color.Black;
@@ -185,7 +185,7 @@ namespace KL___Game_of_Life_Program
 					cellRect.Height = cellHeight;
 
 					//font&string info for neighborcount
-					Font font = new Font("Arial", 20f);
+					Font font = new Font("Arial", 20);
 					StringFormat stringFormat = new StringFormat();
 					stringFormat.Alignment = StringAlignment.Center;
 					stringFormat.LineAlignment = StringAlignment.Center;
