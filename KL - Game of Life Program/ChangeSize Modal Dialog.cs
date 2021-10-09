@@ -19,7 +19,7 @@ namespace KL___Game_of_Life_Program
 
         private void numericUpDownHeight_ValueChanged(object sender, EventArgs e)
         {
-
+            
         }
     }
 }

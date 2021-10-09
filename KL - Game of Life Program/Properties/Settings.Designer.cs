@@ -34,5 +34,29 @@ namespace KL___Game_of_Life_Program.Properties {
                 this["BackgroundColor"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public int UniverseSizeHeight {
+            get {
+                return ((int)(this["UniverseSizeHeight"]));
+            }
+            set {
+                this["UniverseSizeHeight"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public int UniverseSizeWidth {
+            get {
+                return ((int)(this["UniverseSizeWidth"]));
+            }
+            set {
+                this["UniverseSizeWidth"] = value;
+            }
+        }
     }
 }

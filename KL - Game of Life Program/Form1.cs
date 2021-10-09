@@ -279,6 +279,7 @@ namespace KL___Game_of_Life_Program
 		{
 			Properties.Settings.Default.Reset();
 			graphicsPanel1.BackColor = Properties.Settings.Default.BackgroundColor;
+			gridColor = Properties.Settings.Default;
 		}
 
 		private void reloadToolStripMenuItem_Click(object sender, EventArgs e)
@@ -450,6 +451,8 @@ namespace KL___Game_of_Life_Program
 		private void Form1_FormClosed(object sender, FormClosedEventArgs e)
         {
 			Properties.Settings.Default.BackgroundColor = graphicsPanel1.BackColor;
+			Properties.Settings.Default.UniverseSizeHeight = graphicsPanel1.Height;
+			Properties.Settings.Default.UniverseSizeWidth = graphicsPanel1.Width;
 			Properties.Settings.Default.Save();
         }
 
