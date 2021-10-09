@@ -44,7 +44,6 @@ namespace KL___Game_of_Life_Program
 			timer.Enabled = false; // start timer running //true = run, false = stop
 		}
 
-
 		// Calculate the next generation of cells
 		private void NextGeneration()
 		{
@@ -433,6 +432,7 @@ namespace KL___Game_of_Life_Program
 					}
 					yPos++;
 				}
+				toolStripStatusLabelGenerations.Text = "Generations = 1";
 				reader.Close();
 			}
 		}
