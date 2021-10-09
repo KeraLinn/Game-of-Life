@@ -197,8 +197,8 @@ namespace KL___Game_of_Life_Program
 
 						//---poss here to add the bit about neighborct. bc it only needs a ct if it's alive?
 						//dont think need new rect actually, should jsut put in cellRect?  Rectangle rect = new Rectangle(0, 0, 100, 100);
-						int neighbors = 8;
-						e.Graphics.DrawString(neighbors.ToString(), font, Brushes.Black, cellRect, stringFormat);
+						int neighborcount = CountNeighborsFinite(x, y);
+						e.Graphics.DrawString(neighborcount.ToString(), font, Brushes.Turquoise, cellRect, stringFormat);
 					}
 					// Outline the cell with a pen
 					e.Graphics.DrawRectangle(gridPen, cellRect.X, cellRect.Y, cellRect.Width, cellRect.Height);
