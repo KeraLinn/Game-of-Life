@@ -32,6 +32,11 @@ namespace KL___Game_of_Life_Program
 			InitializeComponent();
 
 			graphicsPanel1.BackColor = Properties.Settings.Default.BackgroundColor;
+			graphicsPanel1.Height = Properties.Settings.Default.UniverseSizeHeight;
+			graphicsPanel1.Width = Properties.Settings.Default.UniverseSizeWidth;
+			cellColor = Properties.Settings.Default.cellColor;
+			gridColor = Properties.Settings.Default.gridColor;
+
 
 			// Setup the timer
 			timer.Interval = 100; // milliseconds

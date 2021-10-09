@@ -86,7 +86,6 @@ namespace KL___Game_of_Life_Program
             this.numericUpDownHeight.Name = "numericUpDownHeight";
             this.numericUpDownHeight.Size = new System.Drawing.Size(72, 20);
             this.numericUpDownHeight.TabIndex = 4;
-            this.numericUpDownHeight.ValueChanged += new System.EventHandler(this.numericUpDownHeight_ValueChanged);
             // 
             // numericUpDownWidth
             // 
