@@ -190,18 +190,19 @@ namespace KL___Game_of_Life_Program
 					stringFormat.Alignment = StringAlignment.Center;
 					stringFormat.LineAlignment = StringAlignment.Center;
 
+
 					// Fill the cell with a brush if alive
 					if (universe[x, y] == true)
 					{ 
-						e.Graphics.FillRectangle(cellBrush, cellRect);
-
-						//---poss here to add the bit about neighborct. bc it only needs a ct if it's alive?
-						//dont think need new rect actually, should jsut put in cellRect?  Rectangle rect = new Rectangle(0, 0, 100, 100);
-						int neighborcount = CountNeighborsFinite(x, y);
-						e.Graphics.DrawString(neighborcount.ToString(), font, Brushes.Turquoise, cellRect, stringFormat);
+						e.Graphics.FillRectangle(cellBrush, cellRect);						
 					}
 					// Outline the cell with a pen
 					e.Graphics.DrawRectangle(gridPen, cellRect.X, cellRect.Y, cellRect.Width, cellRect.Height);
+					int neighborcount = CountNeighborsFinite(x, y);
+					if (neighborcount == 0)
+					{ continue; }
+					else
+					{ e.Graphics.DrawString(neighborcount.ToString(), font, Brushes.Turquoise, cellRect, stringFormat); }
 				}
 			}
 			///////////---------NOTE TO SELF: I am going to experiment showing the neighbor count in the cells within the paint method above.			
@@ -404,6 +405,7 @@ namespace KL___Game_of_Life_Program
 					{
 						maxHeight++;
 						if (row.Length > maxWidth) { maxWidth = row.Length; }
+                        else { continue; }
 					}
 				}
 				universe = new bool[maxWidth, maxHeight];
@@ -414,12 +416,12 @@ namespace KL___Game_of_Life_Program
 				while (!reader.EndOfStream)
 				{
 					string row = reader.ReadLine();
+					int yPos = 0;
 					if (row.Contains("!")) { continue; }
 					else
 					{
 						for (int xPos = 0; xPos < row.Length; xPos++)
 						{
-							int yPos = 0;
 							if (row[xPos] == 'O')
 							{ universe[xPos, yPos] = true; }
 							else { universe[xPos, yPos] = false; }

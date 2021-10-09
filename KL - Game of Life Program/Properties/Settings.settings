@@ -15,7 +15,7 @@
       <Value Profile="(Default)">Black</Value>
     </Setting>
     <Setting Name="cellColor" Type="System.Drawing.Color" Scope="User">
-      <Value Profile="(Default)">Gray</Value>
+      <Value Profile="(Default)">DarkGray</Value>
     </Setting>
   </Settings>
 </SettingsFile>

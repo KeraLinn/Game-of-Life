@@ -73,7 +73,7 @@ namespace KL___Game_of_Life_Program.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("Gray")]
+        [global::System.Configuration.DefaultSettingValueAttribute("DarkGray")]
         public global::System.Drawing.Color cellColor {
             get {
                 return ((global::System.Drawing.Color)(this["cellColor"]));
