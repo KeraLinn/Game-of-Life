@@ -287,6 +287,8 @@ namespace KL___Game_of_Life_Program
 		{
 			Properties.Settings.Default.Reload();
 			graphicsPanel1.BackColor = Properties.Settings.Default.BackgroundColor;
+			gridColor = Properties.Settings.Default.gridColor;
+			cellColor = Properties.Settings.Default.cellColor;
 		}
 		#endregion SettingsTabClickEvents - Colors, Reset, Reload
 
@@ -454,6 +456,8 @@ namespace KL___Game_of_Life_Program
 			Properties.Settings.Default.BackgroundColor = graphicsPanel1.BackColor;
 			Properties.Settings.Default.UniverseSizeHeight = graphicsPanel1.Height;
 			Properties.Settings.Default.UniverseSizeWidth = graphicsPanel1.Width;
+			Properties.Settings.Default.cellColor = cellColor;
+			Properties.Settings.Default.gridColor = gridColor;
 			Properties.Settings.Default.Save();
         }
 
