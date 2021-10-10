@@ -30,5 +30,10 @@ namespace KL___Game_of_Life_Program
             get { return width; }
             set { width = value; }
         }
+        public ApplyEventArgs(int Height, int Width)
+        {
+            this.height = Height;
+            this.width = Width;
+        }
     }
 }

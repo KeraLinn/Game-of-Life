@@ -483,7 +483,11 @@ namespace KL___Game_of_Life_Program
 				universe = new bool[dlg.Height, dlg.Width];
 				scratchPad = new bool[dlg.Height, dlg.Width];
 				//timer.Interval = dlg.
+				graphicsPanel1.Invalidate();
             }
         }
+
+		//experiments creating new modal dialog box for size adjustment
+
     }
 }
