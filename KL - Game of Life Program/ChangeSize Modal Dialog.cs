@@ -19,12 +19,12 @@ namespace KL___Game_of_Life_Program
             InitializeComponent();
         }
 
-        public int Height { get; set; }
-        public int Width { get; set; }
+        public int height { get; set; }
+        public int width { get; set; }
 
         private void buttonApply_Click(object sender, EventArgs e)
         {
-            if (Apply != null) Apply(this, new ApplyEventArgs(this.Height, this.Width));
+            if (Apply != null) Apply(this, new ApplyEventArgs(this.height, this.width));
         }
     }
 }
