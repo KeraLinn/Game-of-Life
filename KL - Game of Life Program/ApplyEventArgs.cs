@@ -32,8 +32,8 @@ namespace KL___Game_of_Life_Program
         }
         public ApplyEventArgs(int Height, int Width)
         {
-            this.height = Height;
-            this.width = Width;
+            this.Height = Height;
+            this.Width = Width;
         }
     }
 }

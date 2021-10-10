@@ -466,28 +466,28 @@ namespace KL___Game_of_Life_Program
 			Properties.Settings.Default.gridColor = gridColor;
 			Properties.Settings.Default.Save();
         }
-
-		private void ResizeOptions(int height, int width)
-        {
-			height = universe.GetLength(1);
-			width = universe.GetLength(0);
-			
-        }
         private void optionsToolStripMenuItem1_Click(object sender, EventArgs e)
         {
 			ChangeSize_Modal_Dialog dlg = new ChangeSize_Modal_Dialog();
-			dlg.Height = universe.GetLength(1);
-			dlg.Width = universe.GetLength(0);
+			int height = universe.GetLength(1);
+			int width = universe.GetLength(0);
+			dlg.Apply += new ChangeSize_Modal_Dialog.ApplyEventHandler(dlg_Apply);
 			if(DialogResult.OK == dlg.ShowDialog())
             {
+				dlg.Height = Height;
+				dlg.Width = Width;
 				universe = new bool[dlg.Height, dlg.Width];
 				scratchPad = new bool[dlg.Height, dlg.Width];
 				//timer.Interval = dlg.
 				graphicsPanel1.Invalidate();
             }
         }
-
+		void dlg_Apply(object sender, ApplyEventArgs e)
+        {
+			int Height = e.Height;
+			int Width = e.Width;
+        }
 		//experiments creating new modal dialog box for size adjustment
-
+		
     }
 }
