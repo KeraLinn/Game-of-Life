@@ -9,8 +9,8 @@ namespace KL___Game_of_Life_Program
     public class ApplyEventArgs : EventArgs
     {
         int seed;
-        int height;
-        int width;
+        int NewHeight;
+        int NewWidth;
         public int Seed
         {
             get { return seed; }
@@ -22,18 +22,18 @@ namespace KL___Game_of_Life_Program
         }
         public int Height
         {
-            get { return height; }
-            set { height = value; }
+            get { return NewHeight; }
+            set { NewHeight = value; }
         }
         public int Width
         {
-            get { return width; }
-            set { width = value; }
+            get { return NewWidth; }
+            set { NewWidth = value; }
         }
-        public ApplyEventArgs(int height, int width)
+       public ApplyEventArgs(int NewHeight, int NewWidth)
         {
-            this.height = height;
-            this.width = width;
+            Height = NewHeight;
+            Width = NewWidth;
         }
     }
 }

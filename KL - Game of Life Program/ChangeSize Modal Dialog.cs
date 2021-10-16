@@ -19,12 +19,19 @@ namespace KL___Game_of_Life_Program
             InitializeComponent();
         }
 
-        public int height { get; set; }
-        public int width { get; set; }
-
+/*        public int NewHeight
+        {
+            get { return NewHeight; }
+            set { NewHeight = value; }
+        }
+        public int NewWidth
+        {
+            get { return NewWidth; }
+            set { NewWidth = value; }
+        }*/
         private void buttonApply_Click(object sender, EventArgs e)
         {
-            if (Apply != null) Apply(this, new ApplyEventArgs(this.height, this.width));
+            if (Apply != null) Apply(this, new ApplyEventArgs(Height, Width));
         }
     }
 }

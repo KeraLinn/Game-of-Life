@@ -469,24 +469,29 @@ namespace KL___Game_of_Life_Program
         private void optionsToolStripMenuItem1_Click(object sender, EventArgs e)
         {
 			ChangeSize_Modal_Dialog dlg = new ChangeSize_Modal_Dialog();
-			
+
+			int y = dlg.Height;
+			int x = dlg.Width;
+
 			dlg.Apply += new ChangeSize_Modal_Dialog.ApplyEventHandler(dlg_Apply);
 			if(DialogResult.OK == dlg.ShowDialog())
             {
-				int height = dlg.height;
-				int width = dlg.width;
-				universe = new bool[height, width];
-				scratchPad = new bool[height, width];
+                int width = dlg.Width;
+                x = width;
+                int height = dlg.Height;
+                y = height;
+
+				universe = new bool[x, y];
+				scratchPad = new bool[x, y];
 				//timer.Interval = dlg.
-				
-            }
+				//graphicsPanel1.Invalidate();
+			}
 			graphicsPanel1.Invalidate();
 		}
 		void dlg_Apply(object sender, ApplyEventArgs e)
         {
-			
-			int height = e.Height;
-			int width = e.Width;
+            int x = e.Width;
+            int y = e.Height;
         }
 		//experiments creating new modal dialog box for size adjustment
 		
