@@ -469,8 +469,6 @@ namespace KL___Game_of_Life_Program
         private void optionsToolStripMenuItem1_Click(object sender, EventArgs e)
         {
 			ChangeSize_Modal_Dialog dlg = new ChangeSize_Modal_Dialog();
-			dlg.height = universe.GetLength(1);
-			dlg.width = universe.GetLength(0);
 			
 			dlg.Apply += new ChangeSize_Modal_Dialog.ApplyEventHandler(dlg_Apply);
 			if(DialogResult.OK == dlg.ShowDialog())
