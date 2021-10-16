@@ -203,10 +203,10 @@ namespace KL___Game_of_Life_Program
 					
 					//display neighborcount in cells
 					int neighborcount = CountNeighborsFinite(x, y);
-					if (neighborcount == 0)
-					{ continue; }
-					else
+					if (neighborcount > 0)
 					{ e.Graphics.DrawString(neighborcount.ToString(), font, Brushes.Turquoise, cellRect, stringFormat); }
+					else
+					{continue; }
 				}
 			}
 			//// Cleaning up pens and brushes
