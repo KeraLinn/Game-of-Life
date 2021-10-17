@@ -114,6 +114,11 @@ namespace KL___Game_of_Life_Program
             this.numericUpDownTimerInterval.Name = "numericUpDownTimerInterval";
             this.numericUpDownTimerInterval.Size = new System.Drawing.Size(72, 20);
             this.numericUpDownTimerInterval.TabIndex = 8;
+            this.numericUpDownTimerInterval.Value = new decimal(new int[] {
+            100,
+            0,
+            0,
+            0});
             // 
             // ChangeSize_Modal_Dialog
             // 

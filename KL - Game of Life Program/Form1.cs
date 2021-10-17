@@ -32,8 +32,8 @@ namespace KL___Game_of_Life_Program
 			InitializeComponent();
 
 			graphicsPanel1.BackColor = Properties.Settings.Default.BackgroundColor;
-			graphicsPanel1.Height = Properties.Settings.Default.UniverseSizeHeight;
-			graphicsPanel1.Width = Properties.Settings.Default.UniverseSizeWidth;
+			//graphicsPanel1.Height = Properties.Settings.Default.UniverseSizeHeight;
+			//graphicsPanel1.Width = Properties.Settings.Default.UniverseSizeWidth;
 			cellColor = Properties.Settings.Default.cellColor;
 			gridColor = Properties.Settings.Default.gridColor;
 
@@ -61,18 +61,18 @@ namespace KL___Game_of_Life_Program
 					{
 						if (count < 2)
 						{ scratchPad[x, y] = false; }
-						
+
 						else if (count > 3)
 						{ scratchPad[x, y] = false; }
-						
+
 						else if (count == 2 || count == 3)
 						{ scratchPad[x, y] = true; }
 					}
 					else //if cell currently dead
 					{
-                        if (count == 3)
-                        { scratchPad[x, y] = true; }
-                    }	
+						if (count == 3)
+						{ scratchPad[x, y] = true; }
+					}
 				}
 			}
 			bool[,] temp = universe;
@@ -95,10 +95,10 @@ namespace KL___Game_of_Life_Program
 			{
 				for (int x = 0; x < universe.GetLength(0); x++)
 				{
-					if (universe[x,y] == true)
-                    {
+					if (universe[x, y] == true)
+					{
 						alive++;
-                    }
+					}
 				}
 
 			}
@@ -116,10 +116,10 @@ namespace KL___Game_of_Life_Program
 					int xCheck = x + xOffset;
 					int yCheck = y + yOffset;
 					if (xOffset == 0 && yOffset == 0) { continue; }     // if xOffset and yOffset are both equal to 0 then continue
-					if (xCheck < 0) { continue; }		// if xCheck is less than 0 then continue
+					if (xCheck < 0) { continue; }       // if xCheck is less than 0 then continue
 					if (yCheck < 0) { continue; }       // if yCheck is less than 0 then continue
-					if (xCheck >= xLen) { continue; }	// if xCheck is greater than or equal too xLen then continue
-					if (yCheck >= yLen) { continue; }		// if yCheck is greater than or equal too yLen then continue
+					if (xCheck >= xLen) { continue; }   // if xCheck is greater than or equal too xLen then continue
+					if (yCheck >= yLen) { continue; }       // if yCheck is greater than or equal too yLen then continue
 
 					if (universe[xCheck, yCheck] == true) neighborNum++;
 				}
@@ -138,7 +138,7 @@ namespace KL___Game_of_Life_Program
 				{
 					int xCheck = x + xOffset;
 					int yCheck = y + yOffset;
-					if (xOffset == 0 && yOffset == 0) { continue; }	// if xOffset and yOffset are both equal to 0 then continue
+					if (xOffset == 0 && yOffset == 0) { continue; } // if xOffset and yOffset are both equal to 0 then continue
 					if (xCheck < 0) { xCheck = xLen - 1; }  // if xCheck is less than 0 then set to xLen - 1
 					if (yCheck < 0) { yCheck = yLen - 1; }  // if yCheck is less than 0 then set to yLen - 1
 					if (xCheck >= xLen) { xCheck = 0; } // if xCheck is greater than or equal too xLen then set to 0
@@ -195,18 +195,18 @@ namespace KL___Game_of_Life_Program
 
 					// Fill the cell with a brush if alive
 					if (universe[x, y] == true)
-					{ 
-						e.Graphics.FillRectangle(cellBrush, cellRect);						
+					{
+						e.Graphics.FillRectangle(cellBrush, cellRect);
 					}
 					// Outline the cell with a pen
 					e.Graphics.DrawRectangle(gridPen, cellRect.X, cellRect.Y, cellRect.Width, cellRect.Height);
-					
+
 					//display neighborcount in cells
 					int neighborcount = CountNeighborsFinite(x, y);
 					if (neighborcount > 0)
 					{ e.Graphics.DrawString(neighborcount.ToString(), font, Brushes.Turquoise, cellRect, stringFormat); }
 					else
-					{continue; }
+					{ continue; }
 				}
 			}
 			//// Cleaning up pens and brushes
@@ -407,7 +407,7 @@ namespace KL___Game_of_Life_Program
 					{
 						maxHeight++;
 						if (row.Length > maxWidth) { maxWidth = row.Length; }
-                        else { continue; }
+						else { continue; }
 					}
 				}
 				universe = new bool[maxWidth, maxHeight];
@@ -419,7 +419,7 @@ namespace KL___Game_of_Life_Program
 				while (!reader.EndOfStream)
 				{
 					string row = reader.ReadLine();
-					
+
 					if (row.Contains("!")) { continue; }
 					else
 					{
@@ -458,42 +458,62 @@ namespace KL___Game_of_Life_Program
 		#endregion ToolStrip - Start, Pause, Forward 1 Gen
 
 		private void Form1_FormClosed(object sender, FormClosedEventArgs e)
-        {
+		{
 			Properties.Settings.Default.BackgroundColor = graphicsPanel1.BackColor;
-			Properties.Settings.Default.UniverseSizeHeight = graphicsPanel1.Height;
-			Properties.Settings.Default.UniverseSizeWidth = graphicsPanel1.Width;
+			//Properties.Settings.Default.NewHeight = universe.GetLength(Width);
+			//Properties.Settings.Default.NewWidth = universe.GetLength(0);
 			Properties.Settings.Default.cellColor = cellColor;
 			Properties.Settings.Default.gridColor = gridColor;
 			Properties.Settings.Default.Save();
-        }
-        private void optionsToolStripMenuItem1_Click(object sender, EventArgs e)
-        {
+		}
+		private void optionsToolStripMenuItem1_Click(object sender, EventArgs e)
+		{
 			ChangeSize_Modal_Dialog dlg = new ChangeSize_Modal_Dialog();
 
-			int y = dlg.Height;
-			int x = dlg.Width;
-
+			/*int uniHeight = 0;
+			int uniWidth = 0;*/
+			//int timing = 10;
+			int x = 15;
+			int y = 15;
+			dlg.NewWidth = 15;
+			dlg.NewHeight = 15;
+			//dlg.NewTime = timing;
 			dlg.Apply += new ChangeSize_Modal_Dialog.ApplyEventHandler(dlg_Apply);
-			if(DialogResult.OK == dlg.ShowDialog())
-            {
-                int width = dlg.Width;
-                x = width;
-                int height = dlg.Height;
-                y = height;
+			if (DialogResult.OK == dlg.ShowDialog())
+			{
+				if (dlg.NewHeight > universe.GetLength(1) || dlg.NewHeight < universe.GetLength(1))
+                {
+					y = dlg.NewHeight;
+                }
+				if (dlg.NewWidth > universe.GetLength(0) || dlg.NewWidth < universe.GetLength(0))
+				{
+					x = dlg.NewWidth;
+				}
+				/*if (timing > dlg.NewTime || timing < dlg.NewTime)
+				{
+					timing = dlg.NewTime;
+					timer.Interval = timing;
+				}
+				else (timer.Interval = proper);*/
+				/*uniHeight = dlg.NewHeight;
+				uniWidth = dlg.NewWidth;
+				timing = dlg.NewTime;*/
+
 
 				universe = new bool[x, y];
 				scratchPad = new bool[x, y];
-				//timer.Interval = dlg.
-				//graphicsPanel1.Invalidate();
+				//timer.Interval = timing;
+				
 			}
 			graphicsPanel1.Invalidate();
 		}
+
+		//experiments creating new modal dialog box for size adjustment
 		void dlg_Apply(object sender, ApplyEventArgs e)
         {
-            int x = e.Width;
-            int y = e.Height;
+			int x = e.NewWidth;
+			int y = e.NewHeight;
+			int z = e.NewTime;
         }
-		//experiments creating new modal dialog box for size adjustment
-		
     }
 }

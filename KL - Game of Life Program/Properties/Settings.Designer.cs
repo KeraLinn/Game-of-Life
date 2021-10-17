@@ -37,30 +37,6 @@ namespace KL___Game_of_Life_Program.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("0")]
-        public int UniverseSizeHeight {
-            get {
-                return ((int)(this["UniverseSizeHeight"]));
-            }
-            set {
-                this["UniverseSizeHeight"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("0")]
-        public int UniverseSizeWidth {
-            get {
-                return ((int)(this["UniverseSizeWidth"]));
-            }
-            set {
-                this["UniverseSizeWidth"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("Black")]
         public global::System.Drawing.Color gridColor {
             get {
@@ -80,6 +56,30 @@ namespace KL___Game_of_Life_Program.Properties {
             }
             set {
                 this["cellColor"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string NewWidth {
+            get {
+                return ((string)(this["NewWidth"]));
+            }
+            set {
+                this["NewWidth"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string NewHeight {
+            get {
+                return ((string)(this["NewHeight"]));
+            }
+            set {
+                this["NewHeight"] = value;
             }
         }
     }

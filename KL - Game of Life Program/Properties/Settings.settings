@@ -5,17 +5,17 @@
     <Setting Name="BackgroundColor" Type="System.Drawing.Color" Scope="User">
       <Value Profile="(Default)">SeaShell</Value>
     </Setting>
-    <Setting Name="UniverseSizeHeight" Type="System.Int32" Scope="User">
-      <Value Profile="(Default)">0</Value>
-    </Setting>
-    <Setting Name="UniverseSizeWidth" Type="System.Int32" Scope="User">
-      <Value Profile="(Default)">0</Value>
-    </Setting>
     <Setting Name="gridColor" Type="System.Drawing.Color" Scope="User">
       <Value Profile="(Default)">Black</Value>
     </Setting>
     <Setting Name="cellColor" Type="System.Drawing.Color" Scope="User">
       <Value Profile="(Default)">DarkGray</Value>
+    </Setting>
+    <Setting Name="NewWidth" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="NewHeight" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
     </Setting>
   </Settings>
 </SettingsFile>
