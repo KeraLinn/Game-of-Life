@@ -21,9 +21,33 @@ namespace KL___Game_of_Life_Program
         {
             InitializeComponent();
         }
-        public int NewHeight { get; set; }    
-        public int NewWidth { get; set; }
-        public int NewTime { get; set; }
+        public int NewHeight
+        {
+            get
+            { return (int)numericUpDownHeight.Value; }
+            set
+            {
+                numericUpDownHeight.Value = value;
+            }
+        }
+        public int NewWidth
+        {
+            get
+            { return (int)numericUpDownWidth.Value; }
+            set
+            {
+                numericUpDownWidth.Value = value;
+            }
+        }
+        public int NewTime
+        {
+            get
+            { return (int)numericUpDownTimerInterval.Value; }
+            set
+            {
+                numericUpDownTimerInterval.Value = value;
+            }
+        }
         private void buttonApply_Click(object sender, EventArgs e)
         {
             if (Apply != null) Apply(this, new ApplyEventArgs(this.NewHeight, this.NewWidth, this.NewTime));

@@ -26,6 +26,13 @@ namespace KL___Game_of_Life_Program
 
 		// Generation count
 		int generations = 0;
+		
+		//bool for BorderControls
+		bool isToroidal = false;
+		bool isFinite = true;
+
+		//bools for HUD
+		bool isHUDVisible = true;
 
 		public Form1()
 		{
@@ -209,6 +216,22 @@ namespace KL___Game_of_Life_Program
 					{ continue; }
 				}
 			}
+			//HUD
+			if (isHUDVisible)
+            {
+				string theHUD = "Generations: " + generations + "\nCell Count: " + neighborCountToolStripMenuItem + "\nBoundary Type: " + isFinite;
+				Color myColor = Color.FromArgb(133, 0, 0);
+				Brush HUDBrush = new SolidBrush(myColor);
+				Font HUDfont = new Font("Times New Roman", 20);
+				StringFormat HUDstringFormat = new StringFormat();
+				HUDstringFormat.Alignment = StringAlignment.Near;
+				HUDstringFormat.LineAlignment = StringAlignment.Far;
+				
+				e.Graphics.DrawString(theHUD, HUDfont, HUDBrush, graphicsPanel1.ClientRectangle, HUDstringFormat);
+				//create transparency color using static from ARGB; then create color, then create brush from that color
+				HUDBrush.Dispose();
+            }
+
 			//// Cleaning up pens and brushes
 			////not the same as delete but it signifies done w it
 			gridPen.Dispose();
@@ -475,9 +498,9 @@ namespace KL___Game_of_Life_Program
 			//int timing = 10;
 			int x = 15;
 			int y = 15;
-			dlg.NewWidth = 15;
-			dlg.NewHeight = 15;
-			//dlg.NewTime = timing;
+			dlg.NewWidth = Width;
+			dlg.NewHeight = Height;
+			dlg.NewTime = timer;
 			dlg.Apply += new ChangeSize_Modal_Dialog.ApplyEventHandler(dlg_Apply);
 			if (DialogResult.OK == dlg.ShowDialog())
 			{
@@ -503,9 +526,8 @@ namespace KL___Game_of_Life_Program
 				universe = new bool[x, y];
 				scratchPad = new bool[x, y];
 				//timer.Interval = timing;
-				
+				graphicsPanel1.Invalidate();
 			}
-			graphicsPanel1.Invalidate();
 		}
 
 		//experiments creating new modal dialog box for size adjustment
