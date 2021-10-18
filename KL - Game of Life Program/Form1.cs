@@ -514,6 +514,14 @@ namespace KL___Game_of_Life_Program
 		{
 			isGridVisible = false;
 		}
+		private void toroidalToolStripMenuItem_Click(object sender, EventArgs e)
+		{
+			isFinite = false;
+		}
+		private void finiteToolStripMenuItem_Click(object sender, EventArgs e)
+		{
+			isFinite = true;
+		}
 		private void Form1_FormClosed(object sender, FormClosedEventArgs e)
 		{
 			Properties.Settings.Default.BackgroundColor = graphicsPanel1.BackColor;
