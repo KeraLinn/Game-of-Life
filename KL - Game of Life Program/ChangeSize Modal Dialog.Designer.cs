@@ -83,16 +83,28 @@ namespace KL___Game_of_Life_Program
             // numericUpDownHeight
             // 
             this.numericUpDownHeight.Location = new System.Drawing.Point(204, 54);
+            this.numericUpDownHeight.Maximum = new decimal(new int[] {
+            10000,
+            0,
+            0,
+            0});
             this.numericUpDownHeight.Name = "numericUpDownHeight";
             this.numericUpDownHeight.Size = new System.Drawing.Size(72, 20);
             this.numericUpDownHeight.TabIndex = 4;
+            this.numericUpDownHeight.ValueChanged += new System.EventHandler(this.buttonApply_Click);
             // 
             // numericUpDownWidth
             // 
             this.numericUpDownWidth.Location = new System.Drawing.Point(204, 85);
+            this.numericUpDownWidth.Maximum = new decimal(new int[] {
+            10000,
+            0,
+            0,
+            0});
             this.numericUpDownWidth.Name = "numericUpDownWidth";
             this.numericUpDownWidth.Size = new System.Drawing.Size(72, 20);
             this.numericUpDownWidth.TabIndex = 6;
+            this.numericUpDownWidth.ValueChanged += new System.EventHandler(this.buttonApply_Click);
             // 
             // TimerIntervalLabel
             // 
@@ -119,6 +131,7 @@ namespace KL___Game_of_Life_Program
             0,
             0,
             0});
+            this.numericUpDownTimerInterval.ValueChanged += new System.EventHandler(this.buttonApply_Click);
             // 
             // ChangeSize_Modal_Dialog
             // 
@@ -155,9 +168,9 @@ namespace KL___Game_of_Life_Program
         private System.Windows.Forms.Button ChangeSizeCancel;
         private System.Windows.Forms.Label labelHeight;
         private System.Windows.Forms.Label labelWidth;
+        private System.Windows.Forms.Label TimerIntervalLabel;
         private System.Windows.Forms.NumericUpDown numericUpDownHeight;
         private System.Windows.Forms.NumericUpDown numericUpDownWidth;
-        private System.Windows.Forms.Label TimerIntervalLabel;
         private System.Windows.Forms.NumericUpDown numericUpDownTimerInterval;
     }
 }

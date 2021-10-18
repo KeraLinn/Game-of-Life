@@ -13,8 +13,9 @@ namespace KL___Game_of_Life_Program
 {
 	public partial class Form1 : Form //partial keyword is saying it's only a portion of the code for form 1, the rest of code is in form1.Designer.cs
 	{
-		// The universe array
-		bool[,] universe = new bool[15, 15];
+        #region Startup - Orig. universe, scratchpad, grid/cell Colors, timer, generations, bools
+        // The universe array
+        bool[,] universe = new bool[15, 15];
 		bool[,] scratchPad = new bool[15, 15];
 
 		// Drawing colors
@@ -35,8 +36,8 @@ namespace KL___Game_of_Life_Program
 		bool isHUDVisible = true;
 		//bool for Grid Visible
 		bool isGridVisible = true;
-
-		public Form1()
+        #endregion
+        public Form1()
 		{
 			InitializeComponent();
 
@@ -45,7 +46,6 @@ namespace KL___Game_of_Life_Program
 			//graphicsPanel1.Width = Properties.Settings.Default.UniverseSizeWidth;
 			cellColor = Properties.Settings.Default.cellColor;
 			gridColor = Properties.Settings.Default.gridColor;
-
 
 			// Setup the timer
 			timer.Interval = 100; // milliseconds
@@ -214,9 +214,8 @@ namespace KL___Game_of_Life_Program
 					{
 						e.Graphics.FillRectangle(cellBrush, cellRect);
 					}
-					if (isGridVisible)
+					if (isGridVisible)// Outline the cell with a pen
 					{
-						// Outline the cell with a pen
 						e.Graphics.DrawRectangle(gridPen, cellRect.X, cellRect.Y, cellRect.Width, cellRect.Height);
 					}
 					if (isNeighborVisible)//display neighborcount in cells
@@ -237,8 +236,8 @@ namespace KL___Game_of_Life_Program
 					}
 				}
 			}
-			//HUD
-			if (isHUDVisible)
+            #region HUD
+            if (isHUDVisible)
             {
 				string theHUD = "Generations: " + generations + "\nCells " + StripStatusLabelAlive;
 				Color myColor = Color.FromArgb(133, 0, 0);
@@ -252,7 +251,7 @@ namespace KL___Game_of_Life_Program
 				//create transparency color using static from ARGB; then create color, then create brush from that color
 				HUDBrush.Dispose();
             }
-
+			#endregion
 			//// Cleaning up pens and brushes
 			////not the same as delete but it signifies done w it
 			gridPen.Dispose();

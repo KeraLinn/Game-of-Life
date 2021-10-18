@@ -11,11 +11,5 @@
     <Setting Name="cellColor" Type="System.Drawing.Color" Scope="User">
       <Value Profile="(Default)">DarkGray</Value>
     </Setting>
-    <Setting Name="NewWidth" Type="System.String" Scope="User">
-      <Value Profile="(Default)" />
-    </Setting>
-    <Setting Name="NewHeight" Type="System.String" Scope="User">
-      <Value Profile="(Default)" />
-    </Setting>
   </Settings>
 </SettingsFile>

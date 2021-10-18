@@ -58,29 +58,5 @@ namespace KL___Game_of_Life_Program.Properties {
                 this["cellColor"] = value;
             }
         }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("")]
-        public string NewWidth {
-            get {
-                return ((string)(this["NewWidth"]));
-            }
-            set {
-                this["NewWidth"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("")]
-        public string NewHeight {
-            get {
-                return ((string)(this["NewHeight"]));
-            }
-            set {
-                this["NewHeight"] = value;
-            }
-        }
     }
 }
