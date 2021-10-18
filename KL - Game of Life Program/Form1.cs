@@ -240,7 +240,7 @@ namespace KL___Game_of_Life_Program
 			//HUD
 			if (isHUDVisible)
             {
-				string theHUD = "Generations: " + generations + "\nCell " + StripStatusLabelAlive + "\nBoundary Type: " + isFinite.ToString();
+				string theHUD = "Generations: " + generations + "\nCells " + StripStatusLabelAlive;
 				Color myColor = Color.FromArgb(133, 0, 0);
 				Brush HUDBrush = new SolidBrush(myColor);
 				Font HUDfont = new Font("Times New Roman", 20);
@@ -504,15 +504,27 @@ namespace KL___Game_of_Life_Program
 		#region View Tab - Toggle HUD, NeighborCount in Cells, Grid, Boundary Type
 		private void hUDToolStripMenuItem_Click(object sender, EventArgs e)
 		{
-			isHUDVisible = false;
+			if (isHUDVisible)
+			{ isHUDVisible = false; }
+            else 
+			{ isHUDVisible = true; }
+			graphicsPanel1.Invalidate();
 		}
 		private void neighborCountToolStripMenuItem_Click(object sender, EventArgs e)
 		{
-			isNeighborVisible = false;
+			if (isNeighborVisible)
+			{ isNeighborVisible = false; }
+			else
+			{ isNeighborVisible = true; }
+			graphicsPanel1.Invalidate();
 		}
 		private void gridToolStripMenuItem_Click(object sender, EventArgs e)
 		{
-			isGridVisible = false;
+			if (isGridVisible)
+			{ isGridVisible = false; }
+			else
+			{ isGridVisible = true; }
+			graphicsPanel1.Invalidate();
 		}
 		private void toroidalToolStripMenuItem_Click(object sender, EventArgs e)
 		{
@@ -522,7 +534,8 @@ namespace KL___Game_of_Life_Program
 		{
 			isFinite = true;
 		}
-		private void Form1_FormClosed(object sender, FormClosedEventArgs e)
+        #endregion
+        private void Form1_FormClosed(object sender, FormClosedEventArgs e)
 		{
 			Properties.Settings.Default.BackgroundColor = graphicsPanel1.BackColor;
 			//Properties.Settings.Default.NewHeight = universe.GetLength(Width);
