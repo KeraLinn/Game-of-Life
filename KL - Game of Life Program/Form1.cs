@@ -26,10 +26,11 @@ namespace KL___Game_of_Life_Program
 
 		// Generation count
 		int generations = 0;
-		
+
+		//bool for NeighborCount visible in Cells
+		bool isNeighborVisible = true;
 		//bool for BorderControls
 		bool isFinite = true;
-
 		//bools for HUD
 		bool isHUDVisible = true;
 
@@ -500,7 +501,10 @@ namespace KL___Game_of_Life_Program
 		{
 			isHUDVisible = false;
 		}
-		
+		private void neighborCountToolStripMenuItem_Click(object sender, EventArgs e)
+		{
+			isNeighborVisible = false;
+		}
 
 		private void Form1_FormClosed(object sender, FormClosedEventArgs e)
 		{
@@ -560,9 +564,6 @@ namespace KL___Game_of_Life_Program
 			int z = e.NewTime;
         }
 
-        private void neighborCountToolStripMenuItem_Click(object sender, EventArgs e)
-        {
 
-        }
     }
 }
