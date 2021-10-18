@@ -13,8 +13,10 @@ namespace KL___Game_of_Life_Program
 {
 	public partial class Form1 : Form //partial keyword is saying it's only a portion of the code for form 1, the rest of code is in form1.Designer.cs
 	{
-        #region Startup - Orig. universe, scratchpad, grid/cell Colors, timer, generations, bools
-        // The universe array
+		#region Startup - Orig. universe, scratchpad, grid/cell Colors, timer, generations, bools
+		// The universe array
+		int universeHeight;
+		int universeWidth;
         bool[,] universe = new bool[15, 15];
 		bool[,] scratchPad = new bool[15, 15];
 
@@ -42,13 +44,16 @@ namespace KL___Game_of_Life_Program
 			InitializeComponent();
 
 			graphicsPanel1.BackColor = Properties.Settings.Default.BackgroundColor;
-			//graphicsPanel1.Height = Properties.Settings.Default.UniverseSizeHeight;
-			//graphicsPanel1.Width = Properties.Settings.Default.UniverseSizeWidth;
 			cellColor = Properties.Settings.Default.cellColor;
 			gridColor = Properties.Settings.Default.gridColor;
+			universeHeight = Properties.Settings.Default.UniverseSizeHeight;
+			universeWidth = Properties.Settings.Default.UniverseSizeWidth;
+			universe = new bool[universeWidth, universeHeight];
+			scratchPad = new bool[universeWidth, universeHeight];
+			timer.Interval = Properties.Settings.Default.TimingInterval;
 
 			// Setup the timer
-			timer.Interval = 100; // milliseconds
+			//timer.Interval = 100; // milliseconds
 			timer.Tick += Timer_Tick;
 			timer.Enabled = false; // start timer running //true = run, false = stop
 		}
@@ -282,8 +287,6 @@ namespace KL___Game_of_Life_Program
 				graphicsPanel1.Invalidate();
 			}
 		}
-		/// never call paint directly
-		/// never put invalidate within the paint
 
 		#region SettingsTabClickEvents - Colors, Reset, Reload
 		private void cellColorToolStripMenuItem_Click(object sender, EventArgs e)
@@ -296,7 +299,6 @@ namespace KL___Game_of_Life_Program
 				graphicsPanel1.Invalidate();
 			}
 		}
-
 		private void gridColorToolStripMenuItem_Click(object sender, EventArgs e)
 		{
 			ColorDialog dlg = new ColorDialog();
@@ -307,8 +309,6 @@ namespace KL___Game_of_Life_Program
 				graphicsPanel1.Invalidate();
 			}
 		}
-
-		//grid x10 is like the "big grid" of it, like the shape of tic tac toe whereas the grid is every cell outline
 		private void backgroundColorToolStripMenuItem_Click(object sender, EventArgs e)
 		{
 			ColorDialog dlg = new ColorDialog();
@@ -327,14 +327,23 @@ namespace KL___Game_of_Life_Program
 			graphicsPanel1.BackColor = Properties.Settings.Default.BackgroundColor;
 			gridColor = Properties.Settings.Default.gridColor;
 			cellColor = Properties.Settings.Default.cellColor;
+			universeHeight = Properties.Settings.Default.UniverseSizeHeight;
+			universeWidth = Properties.Settings.Default.UniverseSizeWidth;
+			universe = new bool[universeWidth, universeHeight];
+			scratchPad = new bool[universeWidth, universeHeight];
+			timer.Interval = Properties.Settings.Default.TimingInterval;
 		}
-
 		private void reloadToolStripMenuItem_Click(object sender, EventArgs e)
 		{
 			Properties.Settings.Default.Reload();
 			graphicsPanel1.BackColor = Properties.Settings.Default.BackgroundColor;
 			gridColor = Properties.Settings.Default.gridColor;
 			cellColor = Properties.Settings.Default.cellColor;
+			universeHeight = Properties.Settings.Default.UniverseSizeHeight;
+			universeWidth = Properties.Settings.Default.UniverseSizeWidth;
+			universe = new bool[universeWidth, universeHeight];
+			scratchPad = new bool[universeWidth, universeHeight];
+			timer.Interval = Properties.Settings.Default.TimingInterval;
 		}
 		#endregion SettingsTabClickEvents - Colors, Reset, Reload
 
@@ -534,15 +543,7 @@ namespace KL___Game_of_Life_Program
 			isFinite = true;
 		}
         #endregion
-        private void Form1_FormClosed(object sender, FormClosedEventArgs e)
-		{
-			Properties.Settings.Default.BackgroundColor = graphicsPanel1.BackColor;
-			//Properties.Settings.Default.NewHeight = universe.GetLength(Width);
-			//Properties.Settings.Default.NewWidth = universe.GetLength(0);
-			Properties.Settings.Default.cellColor = cellColor;
-			Properties.Settings.Default.gridColor = gridColor;
-			Properties.Settings.Default.Save();
-		}
+
 		private void optionsToolStripMenuItem1_Click(object sender, EventArgs e)
 		{
 			ChangeSize_Modal_Dialog dlg = new ChangeSize_Modal_Dialog();
@@ -574,15 +575,22 @@ namespace KL___Game_of_Life_Program
 				graphicsPanel1.Invalidate();
 			}
 		}
-
-		//experiments creating new modal dialog box for size adjustment
 		void dlg_Apply(object sender, ApplyEventArgs e)
         {
 			int x = e.NewWidth;
 			int y = e.NewHeight;
 			int z = e.NewTime;
         }
+		private void Form1_FormClosed(object sender, FormClosedEventArgs e)
+		{
+			Properties.Settings.Default.BackgroundColor = graphicsPanel1.BackColor;
+			Properties.Settings.Default.cellColor = cellColor;
+			Properties.Settings.Default.gridColor = gridColor;
+			Properties.Settings.Default.UniverseSizeHeight = universe.GetLength(1);
+			Properties.Settings.Default.UniverseSizeWidth = universe.GetLength(0);
+			Properties.Settings.Default.TimingInterval = timer.Interval;
+			Properties.Settings.Default.Save();
+		}
 
-
-    }
+	}
 }

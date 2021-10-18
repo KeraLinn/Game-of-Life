@@ -11,5 +11,14 @@
     <Setting Name="cellColor" Type="System.Drawing.Color" Scope="User">
       <Value Profile="(Default)">DarkGray</Value>
     </Setting>
+    <Setting Name="UniverseSizeHeight" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">15</Value>
+    </Setting>
+    <Setting Name="UniverseSizeWidth" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">15</Value>
+    </Setting>
+    <Setting Name="TimingInterval" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">100</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

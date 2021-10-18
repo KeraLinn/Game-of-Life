@@ -58,5 +58,41 @@ namespace KL___Game_of_Life_Program.Properties {
                 this["cellColor"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("15")]
+        public int UniverseSizeHeight {
+            get {
+                return ((int)(this["UniverseSizeHeight"]));
+            }
+            set {
+                this["UniverseSizeHeight"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("15")]
+        public int UniverseSizeWidth {
+            get {
+                return ((int)(this["UniverseSizeWidth"]));
+            }
+            set {
+                this["UniverseSizeWidth"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("100")]
+        public int TimingInterval {
+            get {
+                return ((int)(this["TimingInterval"]));
+            }
+            set {
+                this["TimingInterval"] = value;
+            }
+        }
     }
 }
