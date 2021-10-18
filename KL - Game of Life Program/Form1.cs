@@ -33,6 +33,8 @@ namespace KL___Game_of_Life_Program
 		bool isFinite = true;
 		//bools for HUD
 		bool isHUDVisible = true;
+		//bool for Grid Visible
+		bool isGridVisible = true;
 
 		public Form1()
 		{
@@ -212,24 +214,27 @@ namespace KL___Game_of_Life_Program
 					{
 						e.Graphics.FillRectangle(cellBrush, cellRect);
 					}
-					// Outline the cell with a pen
-					e.Graphics.DrawRectangle(gridPen, cellRect.X, cellRect.Y, cellRect.Width, cellRect.Height);
-
-					//display neighborcount in cells
-					int neighborcount;
-					if(isFinite)
-                    {
-						neighborcount = CountNeighborsFinite(x, y);
-                    }
-                    else
-                    {
-						neighborcount = CountNeighborsToroidal(x, y);
-                    }
-					//int neighborcount = CountNeighborsFinite(x, y);
-					if (neighborcount > 0)
-					{ e.Graphics.DrawString(neighborcount.ToString(), font, Brushes.Turquoise, cellRect, stringFormat); }
-					else
-					{ continue; }
+					if (isGridVisible)
+					{
+						// Outline the cell with a pen
+						e.Graphics.DrawRectangle(gridPen, cellRect.X, cellRect.Y, cellRect.Width, cellRect.Height);
+					}
+					if (isNeighborVisible)//display neighborcount in cells
+					{	
+						int neighborcount;
+						if (isFinite)
+						{
+							neighborcount = CountNeighborsFinite(x, y);
+						}
+						else
+						{
+							neighborcount = CountNeighborsToroidal(x, y);
+						}
+						if (neighborcount > 0)
+						{ e.Graphics.DrawString(neighborcount.ToString(), font, Brushes.Turquoise, cellRect, stringFormat); }
+						else
+						{ continue; }
+					}
 				}
 			}
 			//HUD
@@ -505,7 +510,10 @@ namespace KL___Game_of_Life_Program
 		{
 			isNeighborVisible = false;
 		}
-
+		private void gridToolStripMenuItem_Click(object sender, EventArgs e)
+		{
+			isGridVisible = false;
+		}
 		private void Form1_FormClosed(object sender, FormClosedEventArgs e)
 		{
 			Properties.Settings.Default.BackgroundColor = graphicsPanel1.BackColor;
