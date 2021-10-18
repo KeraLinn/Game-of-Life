@@ -547,13 +547,10 @@ namespace KL___Game_of_Life_Program
 		{
 			ChangeSize_Modal_Dialog dlg = new ChangeSize_Modal_Dialog();
 
-			/*int uniHeight = 0;
-			int uniWidth = 0;*/
-			//int timing = 10;
-			int x = 15;
-			int y = 15;
-			dlg.NewWidth = Width;
-			dlg.NewHeight = Height;
+			int x = universe.GetLength(0);
+			int y = universe.GetLength(1);
+			dlg.NewWidth = x;
+			dlg.NewHeight = y;
 			//dlg.NewTime = timer;
 			dlg.Apply += new ChangeSize_Modal_Dialog.ApplyEventHandler(dlg_Apply);
 			if (DialogResult.OK == dlg.ShowDialog())
