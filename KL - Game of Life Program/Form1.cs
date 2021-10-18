@@ -549,9 +549,10 @@ namespace KL___Game_of_Life_Program
 
 			int x = universe.GetLength(0);
 			int y = universe.GetLength(1);
+			int timing = timer.Interval;
 			dlg.NewWidth = x;
 			dlg.NewHeight = y;
-			//dlg.NewTime = timer;
+			dlg.NewTime = timing;
 			dlg.Apply += new ChangeSize_Modal_Dialog.ApplyEventHandler(dlg_Apply);
 			if (DialogResult.OK == dlg.ShowDialog())
 			{
@@ -563,20 +564,13 @@ namespace KL___Game_of_Life_Program
 				{
 					x = dlg.NewWidth;
 				}
-				/*if (timing > dlg.NewTime || timing < dlg.NewTime)
-				{
+				if(dlg.NewTime > timing || dlg.NewTime < timing)
+                {
 					timing = dlg.NewTime;
-					timer.Interval = timing;
-				}
-				else (timer.Interval = proper);*/
-				/*uniHeight = dlg.NewHeight;
-				uniWidth = dlg.NewWidth;
-				timing = dlg.NewTime;*/
-
-
+                }
 				universe = new bool[x, y];
 				scratchPad = new bool[x, y];
-				//timer.Interval = timing;
+				timer.Interval = timing;
 				graphicsPanel1.Invalidate();
 			}
 		}
