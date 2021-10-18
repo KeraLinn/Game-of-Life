@@ -172,7 +172,6 @@ namespace KL___Game_of_Life_Program
 			HowManyAlive();
 			return neighborNum;
 		}
-		// The event called by the timer every Interval milliseconds causes game to run
 		private void Timer_Tick(object sender, EventArgs e)
 		{
 			NextGeneration();
