@@ -28,7 +28,6 @@ namespace KL___Game_of_Life_Program
 		int generations = 0;
 		
 		//bool for BorderControls
-		bool isToroidal = false;
 		bool isFinite = true;
 
 		//bools for HUD
@@ -62,7 +61,15 @@ namespace KL___Game_of_Life_Program
 				{
 					scratchPad[x, y] = false;
 					//get neighborcount
-					int count = CountNeighborsFinite(x, y);
+					int count;
+					if (isFinite)
+					{
+						count = CountNeighborsFinite(x, y);
+					}
+					else
+					{
+						count = CountNeighborsToroidal(x, y);
+					}
 
 					if (universe[x, y] == true) //if cell is currently alive
 					{
@@ -199,7 +206,6 @@ namespace KL___Game_of_Life_Program
 					stringFormat.Alignment = StringAlignment.Center;
 					stringFormat.LineAlignment = StringAlignment.Center;
 
-
 					// Fill the cell with a brush if alive
 					if (universe[x, y] == true)
 					{
@@ -209,7 +215,16 @@ namespace KL___Game_of_Life_Program
 					e.Graphics.DrawRectangle(gridPen, cellRect.X, cellRect.Y, cellRect.Width, cellRect.Height);
 
 					//display neighborcount in cells
-					int neighborcount = CountNeighborsFinite(x, y);
+					int neighborcount;
+					if(isFinite)
+                    {
+						neighborcount = CountNeighborsFinite(x, y);
+                    }
+                    else
+                    {
+						neighborcount = CountNeighborsToroidal(x, y);
+                    }
+					//int neighborcount = CountNeighborsFinite(x, y);
 					if (neighborcount > 0)
 					{ e.Graphics.DrawString(neighborcount.ToString(), font, Brushes.Turquoise, cellRect, stringFormat); }
 					else
@@ -219,7 +234,7 @@ namespace KL___Game_of_Life_Program
 			//HUD
 			if (isHUDVisible)
             {
-				string theHUD = "Generations: " + generations + "\nCell Count: " + neighborCountToolStripMenuItem + "\nBoundary Type: " + isFinite;
+				string theHUD = "Generations: " + generations + "\nCell " + StripStatusLabelAlive + "\nBoundary Type: " + isFinite.ToString();
 				Color myColor = Color.FromArgb(133, 0, 0);
 				Brush HUDBrush = new SolidBrush(myColor);
 				Font HUDfont = new Font("Times New Roman", 20);
@@ -480,6 +495,13 @@ namespace KL___Game_of_Life_Program
 		}
 		#endregion ToolStrip - Start, Pause, Forward 1 Gen
 
+		#region View Tab - Toggle HUD, NeighborCount in Cells, Grid, Boundary Type
+		private void hUDToolStripMenuItem_Click(object sender, EventArgs e)
+		{
+			isHUDVisible = false;
+		}
+		
+
 		private void Form1_FormClosed(object sender, FormClosedEventArgs e)
 		{
 			Properties.Settings.Default.BackgroundColor = graphicsPanel1.BackColor;
@@ -500,7 +522,7 @@ namespace KL___Game_of_Life_Program
 			int y = 15;
 			dlg.NewWidth = Width;
 			dlg.NewHeight = Height;
-			dlg.NewTime = timer;
+			//dlg.NewTime = timer;
 			dlg.Apply += new ChangeSize_Modal_Dialog.ApplyEventHandler(dlg_Apply);
 			if (DialogResult.OK == dlg.ShowDialog())
 			{
@@ -536,6 +558,11 @@ namespace KL___Game_of_Life_Program
 			int x = e.NewWidth;
 			int y = e.NewHeight;
 			int z = e.NewTime;
+        }
+
+        private void neighborCountToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
