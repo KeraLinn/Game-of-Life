@@ -76,8 +76,8 @@ namespace KL___Game_of_Life_Program
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.colorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.modalToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.graphicsPanel1 = new KL___Game_of_Life_Program.GraphicsPanel();
             this.StripStatusLabelBoundary = new System.Windows.Forms.ToolStripStatusLabel();
+            this.graphicsPanel1 = new KL___Game_of_Life_Program.GraphicsPanel();
             this.menuStrip1.SuspendLayout();
             this.toolStrip1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
@@ -387,7 +387,7 @@ namespace KL___Game_of_Life_Program
             // 
             this.Start.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
             this.Start.Image = global::KL___Game_of_Life_Program.Properties.Resources.Image1;
-            this.Start.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.Start.ImageTransparentColor = System.Drawing.Color.White;
             this.Start.Name = "Start";
             this.Start.Size = new System.Drawing.Size(23, 22);
             this.Start.Text = "StartButton";
@@ -457,6 +457,12 @@ namespace KL___Game_of_Life_Program
             this.modalToolStripMenuItem.Size = new System.Drawing.Size(108, 22);
             this.modalToolStripMenuItem.Text = "Modal";
             // 
+            // StripStatusLabelBoundary
+            // 
+            this.StripStatusLabelBoundary.Name = "StripStatusLabelBoundary";
+            this.StripStatusLabelBoundary.Size = new System.Drawing.Size(99, 17);
+            this.StripStatusLabelBoundary.Text = "Boundary Type = ";
+            // 
             // graphicsPanel1
             // 
             this.graphicsPanel1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
@@ -469,12 +475,6 @@ namespace KL___Game_of_Life_Program
             this.graphicsPanel1.TabIndex = 3;
             this.graphicsPanel1.Paint += new System.Windows.Forms.PaintEventHandler(this.graphicsPanel1_Paint);
             this.graphicsPanel1.MouseClick += new System.Windows.Forms.MouseEventHandler(this.graphicsPanel1_MouseClick);
-            // 
-            // StripStatusLabelBoundary
-            // 
-            this.StripStatusLabelBoundary.Name = "StripStatusLabelBoundary";
-            this.StripStatusLabelBoundary.Size = new System.Drawing.Size(99, 17);
-            this.StripStatusLabelBoundary.Text = "Boundary Type = ";
             // 
             // Form1
             // 
