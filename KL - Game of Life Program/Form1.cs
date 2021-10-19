@@ -526,25 +526,31 @@ namespace KL___Game_of_Life_Program
 		private void hUDToolStripMenuItem_Click(object sender, EventArgs e)
 		{
 			if (isHUDVisible)
-			{ isHUDVisible = false; }
+			{ isHUDVisible = false;
+				hUDToolStripMenuItem.Checked = false; }
             else 
-			{ isHUDVisible = true; }
+			{ isHUDVisible = true;
+				hUDToolStripMenuItem.Checked = true; }
 			graphicsPanel1.Invalidate();
 		}
 		private void neighborCountToolStripMenuItem_Click(object sender, EventArgs e)
 		{
 			if (isNeighborVisible)
-			{ isNeighborVisible = false; }
+			{ isNeighborVisible = false;
+				neighborCountToolStripMenuItem.Checked = false;	}
 			else
-			{ isNeighborVisible = true; }
+			{ isNeighborVisible = true; 
+				neighborCountToolStripMenuItem.Checked = true; }
 			graphicsPanel1.Invalidate();
 		}
 		private void gridToolStripMenuItem_Click(object sender, EventArgs e)
 		{
 			if (isGridVisible)
-			{ isGridVisible = false; }
+			{ isGridVisible = false;
+				gridToolStripMenuItem.Checked = false; }
 			else
-			{ isGridVisible = true; }
+			{ isGridVisible = true;
+				gridToolStripMenuItem.Checked = true; }
 			graphicsPanel1.Invalidate();
 		}
 		private void toroidalToolStripMenuItem_Click(object sender, EventArgs e)
