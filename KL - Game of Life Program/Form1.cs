@@ -189,7 +189,6 @@ namespace KL___Game_of_Life_Program
 		{
 			NextGeneration();
 		}
-
 		private void graphicsPanel1_Paint(object sender, PaintEventArgs e)
 		{
 			// Calculate the width and height of each cell in pixels
