@@ -75,11 +75,15 @@ namespace KL___Game_of_Life_Program
 					{
 						count = CountNeighborsToroidal(x, y);
 						StripStatusLabelBoundary.Text = "Boundary Type: Toroidal";
+						toroidalToolStripMenuItem.Checked = true;
+						finiteToolStripMenuItem.Checked = false;
 					}
 					else
 					{
 						count = CountNeighborsFinite(x, y);
 						StripStatusLabelBoundary.Text = "Boundary Type: Finite";
+						toroidalToolStripMenuItem.Checked = false;
+						finiteToolStripMenuItem.Checked = true;
 					}
 
 					if (universe[x, y] == true) //if cell is currently alive
@@ -132,6 +136,8 @@ namespace KL___Game_of_Life_Program
 		private int CountNeighborsFinite(int x, int y)
 		{
 			StripStatusLabelBoundary.Text = "Boundary Type: Finite";
+			toroidalToolStripMenuItem.Checked = false;
+			finiteToolStripMenuItem.Checked = true;
 			int neighborNum = 0;
 			int xLen = universe.GetLength(0);
 			int yLen = universe.GetLength(1);
@@ -156,6 +162,8 @@ namespace KL___Game_of_Life_Program
 		private int CountNeighborsToroidal(int x, int y)
 		{
 			StripStatusLabelBoundary.Text = "Boundary Type: Toroidal";
+			toroidalToolStripMenuItem.Checked = true;
+			finiteToolStripMenuItem.Checked = false;
 			int neighborNum = 0;
 			int xLen = universe.GetLength(0);
 			int yLen = universe.GetLength(1);
@@ -543,12 +551,16 @@ namespace KL___Game_of_Life_Program
 		{
 			isToroidal = true;
 			StripStatusLabelBoundary.Text = "Boundary Type: Toroidal";
+			toroidalToolStripMenuItem.Checked = true;
+			finiteToolStripMenuItem.Checked = false;
 			graphicsPanel1.Invalidate();
 		}
 		private void finiteToolStripMenuItem_Click(object sender, EventArgs e)
 		{
 			isToroidal = false;
 			StripStatusLabelBoundary.Text = "Boundary Type: Finite";
+			toroidalToolStripMenuItem.Checked = false;
+			finiteToolStripMenuItem.Checked = true;
 			graphicsPanel1.Invalidate();
 		}
         #endregion
