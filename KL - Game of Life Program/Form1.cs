@@ -51,6 +51,7 @@ namespace KL___Game_of_Life_Program
 			universe = new bool[universeWidth, universeHeight];
 			scratchPad = new bool[universeWidth, universeHeight];
 			timer.Interval = Properties.Settings.Default.TimingInterval;
+			isToroidal = Properties.Settings.Default.BoundaryType;
 
 			// Setup the timer
 			//timer.Interval = 100; // milliseconds
@@ -588,6 +589,7 @@ namespace KL___Game_of_Life_Program
 			Properties.Settings.Default.UniverseSizeHeight = universe.GetLength(1);
 			Properties.Settings.Default.UniverseSizeWidth = universe.GetLength(0);
 			Properties.Settings.Default.TimingInterval = timer.Interval;
+			Properties.Settings.Default.BoundaryType = isToroidal;
 			Properties.Settings.Default.Save();
 		}
 
