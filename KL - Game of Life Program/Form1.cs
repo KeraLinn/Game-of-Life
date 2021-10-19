@@ -33,7 +33,7 @@ namespace KL___Game_of_Life_Program
 		//bool for NeighborCount visible in Cells
 		bool isNeighborVisible = true;
 		//bool for BorderControls
-		bool isFinite = true;
+		bool isToroidal = false;
 		//bools for HUD
 		bool isHUDVisible = true;
 		//bool for Grid Visible
@@ -70,13 +70,13 @@ namespace KL___Game_of_Life_Program
 					scratchPad[x, y] = false;
 					//get neighborcount
 					int count;
-					if (isFinite)
+					if (isToroidal)
 					{
-						count = CountNeighborsFinite(x, y);
+						count = CountNeighborsToroidal(x, y); 
 					}
 					else
 					{
-						count = CountNeighborsToroidal(x, y);
+						count = CountNeighborsFinite(x, y);
 					}
 
 					if (universe[x, y] == true) //if cell is currently alive
@@ -225,13 +225,13 @@ namespace KL___Game_of_Life_Program
 					if (isNeighborVisible)//display neighborcount in cells
 					{	
 						int neighborcount;
-						if (isFinite)
+						if (isToroidal)
 						{
-							neighborcount = CountNeighborsFinite(x, y);
+							neighborcount = CountNeighborsToroidal(x, y);
 						}
 						else
 						{
-							neighborcount = CountNeighborsToroidal(x, y);
+							neighborcount = CountNeighborsFinite(x, y); 
 						}
 						if (neighborcount > 0)
 						{ e.Graphics.DrawString(neighborcount.ToString(), font, Brushes.Turquoise, cellRect, stringFormat); }
@@ -535,11 +535,11 @@ namespace KL___Game_of_Life_Program
 		}
 		private void toroidalToolStripMenuItem_Click(object sender, EventArgs e)
 		{
-			isFinite = false;
+			isToroidal = true;
 		}
 		private void finiteToolStripMenuItem_Click(object sender, EventArgs e)
 		{
-			isFinite = true;
+			isToroidal = false;
 		}
         #endregion
 
