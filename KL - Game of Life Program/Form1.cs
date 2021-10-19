@@ -73,11 +73,13 @@ namespace KL___Game_of_Life_Program
 					int count;
 					if (isToroidal)
 					{
-						count = CountNeighborsToroidal(x, y); 
+						count = CountNeighborsToroidal(x, y);
+						StripStatusLabelBoundary.Text = "Boundary Type: Toroidal";
 					}
 					else
 					{
 						count = CountNeighborsFinite(x, y);
+						StripStatusLabelBoundary.Text = "Boundary Type: Finite";
 					}
 
 					if (universe[x, y] == true) //if cell is currently alive
@@ -108,7 +110,7 @@ namespace KL___Game_of_Life_Program
 			generations++;
 
 			// Update status strip generations
-			toolStripStatusLabelGenerations.Text = "Generations = " + generations.ToString();
+			toolStripStatusLabelGenerations.Text = "Generations = " + generations;
 			HowManyAlive();
 		}
 		private void HowManyAlive()
@@ -129,6 +131,7 @@ namespace KL___Game_of_Life_Program
 		}
 		private int CountNeighborsFinite(int x, int y)
 		{
+			StripStatusLabelBoundary.Text = "Boundary Type: Finite";
 			int neighborNum = 0;
 			int xLen = universe.GetLength(0);
 			int yLen = universe.GetLength(1);
@@ -152,6 +155,7 @@ namespace KL___Game_of_Life_Program
 		}
 		private int CountNeighborsToroidal(int x, int y)
 		{
+			StripStatusLabelBoundary.Text = "Boundary Type: Toroidal";
 			int neighborNum = 0;
 			int xLen = universe.GetLength(0);
 			int yLen = universe.GetLength(1);
@@ -244,7 +248,8 @@ namespace KL___Game_of_Life_Program
             #region HUD
             if (isHUDVisible)
             {
-				string theHUD = "Generations: " + generations + "\nCells " + StripStatusLabelAlive;
+				string theHUD = "Generations: " + generations + "\nCells " + StripStatusLabelAlive + "\n" + StripStatusLabelBoundary;
+				
 				Color myColor = Color.FromArgb(133, 0, 0);
 				Brush HUDBrush = new SolidBrush(myColor);
 				Font HUDfont = new Font("Times New Roman", 20);
@@ -537,10 +542,14 @@ namespace KL___Game_of_Life_Program
 		private void toroidalToolStripMenuItem_Click(object sender, EventArgs e)
 		{
 			isToroidal = true;
+			StripStatusLabelBoundary.Text = "Boundary Type: Toroidal";
+			graphicsPanel1.Invalidate();
 		}
 		private void finiteToolStripMenuItem_Click(object sender, EventArgs e)
 		{
 			isToroidal = false;
+			StripStatusLabelBoundary.Text = "Boundary Type: Finite";
+			graphicsPanel1.Invalidate();
 		}
         #endregion
 
