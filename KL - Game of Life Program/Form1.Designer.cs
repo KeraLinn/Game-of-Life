@@ -78,6 +78,9 @@ namespace KL___Game_of_Life_Program
             this.optionsContextWindow = new System.Windows.Forms.ToolStripMenuItem();
             this.StripStatusLabelBoundary = new System.Windows.Forms.ToolStripStatusLabel();
             this.graphicsPanel1 = new KL___Game_of_Life_Program.GraphicsPanel();
+            this.backgroundColorToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.cellColorToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.gridColorToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.toolStrip1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
@@ -451,10 +454,14 @@ namespace KL___Game_of_Life_Program
             this.colorContextMenu,
             this.optionsContextWindow});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(117, 48);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(181, 70);
             // 
             // colorContextMenu
             // 
+            this.colorContextMenu.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.backgroundColorToolStripMenuItem1,
+            this.cellColorToolStripMenuItem1,
+            this.gridColorToolStripMenuItem1});
             this.colorContextMenu.Name = "colorContextMenu";
             this.colorContextMenu.Size = new System.Drawing.Size(180, 22);
             this.colorContextMenu.Text = "Color";
@@ -462,8 +469,9 @@ namespace KL___Game_of_Life_Program
             // optionsContextWindow
             // 
             this.optionsContextWindow.Name = "optionsContextWindow";
-            this.optionsContextWindow.Size = new System.Drawing.Size(116, 22);
+            this.optionsContextWindow.Size = new System.Drawing.Size(180, 22);
             this.optionsContextWindow.Text = "Options";
+            this.optionsContextWindow.Click += new System.EventHandler(this.optionsToolStripMenuItem1_Click);
             // 
             // StripStatusLabelBoundary
             // 
@@ -483,6 +491,27 @@ namespace KL___Game_of_Life_Program
             this.graphicsPanel1.TabIndex = 3;
             this.graphicsPanel1.Paint += new System.Windows.Forms.PaintEventHandler(this.graphicsPanel1_Paint);
             this.graphicsPanel1.MouseClick += new System.Windows.Forms.MouseEventHandler(this.graphicsPanel1_MouseClick);
+            // 
+            // backgroundColorToolStripMenuItem1
+            // 
+            this.backgroundColorToolStripMenuItem1.Name = "backgroundColorToolStripMenuItem1";
+            this.backgroundColorToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
+            this.backgroundColorToolStripMenuItem1.Text = "Background Color";
+            this.backgroundColorToolStripMenuItem1.Click += new System.EventHandler(this.backgroundColorToolStripMenuItem_Click);
+            // 
+            // cellColorToolStripMenuItem1
+            // 
+            this.cellColorToolStripMenuItem1.Name = "cellColorToolStripMenuItem1";
+            this.cellColorToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
+            this.cellColorToolStripMenuItem1.Text = "Cell Color";
+            this.cellColorToolStripMenuItem1.Click += new System.EventHandler(this.cellColorToolStripMenuItem_Click);
+            // 
+            // gridColorToolStripMenuItem1
+            // 
+            this.gridColorToolStripMenuItem1.Name = "gridColorToolStripMenuItem1";
+            this.gridColorToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
+            this.gridColorToolStripMenuItem1.Text = "Grid Color";
+            this.gridColorToolStripMenuItem1.Click += new System.EventHandler(this.gridColorToolStripMenuItem_Click);
             // 
             // Form1
             // 
@@ -558,6 +587,9 @@ namespace KL___Game_of_Life_Program
         private System.Windows.Forms.ToolStripMenuItem fromTimeToolStripMenuItem;
         private System.Windows.Forms.ToolStripStatusLabel StripStatusLabelAlive;
         private System.Windows.Forms.ToolStripStatusLabel StripStatusLabelBoundary;
+        private System.Windows.Forms.ToolStripMenuItem backgroundColorToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem cellColorToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem gridColorToolStripMenuItem1;
     }
 }
 
