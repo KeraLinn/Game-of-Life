@@ -257,7 +257,7 @@ namespace KL___Game_of_Life_Program
             {
 				string theHUD = "Generations: " + generations + "\nCells " + StripStatusLabelAlive + "\n" + StripStatusLabelBoundary;
 				
-				Color myColor = Color.FromArgb(133, 0, 0);
+				Color myColor = Color.FromArgb(201, 92, 255);
 				Brush HUDBrush = new SolidBrush(myColor);
 				Font HUDfont = new Font("Times New Roman", 20);
 				StringFormat HUDstringFormat = new StringFormat();
