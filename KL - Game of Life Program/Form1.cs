@@ -499,6 +499,7 @@ namespace KL___Game_of_Life_Program
 				toolStripStatusLabelGenerations.Text = "Generations = 1";
 				reader.Close();
 			}
+			graphicsPanel1.Invalidate();
 		}
 		#endregion FileTab - New, Open, Save, Exit
 
