@@ -393,10 +393,11 @@ namespace KL___Game_of_Life_Program
 		private void fromSeedToolStripMenuItem_Click(object sender, EventArgs e)
 		{
 			RandomizeFromSeed_Modal_Dialog dlg = new RandomizeFromSeed_Modal_Dialog();
-			dlg.SeedInteger = 0;
+			int seed = 0;
+			dlg.SeedInteger = seed;
 			if (DialogResult.OK == dlg.ShowDialog())
 			{
-				int seed = dlg.SeedInteger;
+				seed = dlg.SeedInteger;
 				RandomizeFromSeed(seed);
 				graphicsPanel1.Invalidate();
 			}

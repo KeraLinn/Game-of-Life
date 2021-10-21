@@ -17,6 +17,12 @@ namespace KL___Game_of_Life_Program
             InitializeComponent();
         }
 
-        public int SeedInteger { get; internal set; }
+        public int SeedInteger
+        {
+            get
+            { return (int)SeedNumericUpDown1.Value; }
+            set
+            { SeedNumericUpDown1.Value = value; }
+        }
     }
 }
