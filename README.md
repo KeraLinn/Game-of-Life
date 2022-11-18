@@ -1,9 +1,7 @@
 # John Conway's Game of Life - Implementation by Kera Linn
 ### Background Info:  
 
-The Game of Life is a computer simulation known as a cellular automaton (automaton singular, automata plural). Essentially it is a way to present mathematical models of complex systems.   
-
-John Conway built his rules off the work of John Von Nuemann, who was trying to model a type of machine that could self-replicate, and determined that such a machine could be represented by a 2-dimensional array of cells (a grid).   
+The Game of Life is a computer simulation known as a cellular automaton (automaton singular, automata plural). John Conway built his rules off the work of John Von Nuemann, who was trying to model a type of machine that could self-replicate, and determined that such a machine could be represented by a 2-dimensional array of cells (a grid).   
 
 Thus the Game of Life is a repetitive program calculating infinite 'generations' of cells, wherein the cells are 'alive' or 'dead' depending on the previous generation's configuration.   
 
